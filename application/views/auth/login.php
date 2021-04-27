@@ -48,5 +48,11 @@
             </div>
             <!-- /.login-card-body -->
         </div>
+        <div>
+            <p class="mb-1">
+                <span class="fas fa-angle-left"></span>
+                <a href="<?= base_url('landing'); ?>">back</a>
+            </p>
+        </div>
     </div>
     <!-- /.login-box -->

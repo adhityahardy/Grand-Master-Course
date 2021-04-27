@@ -30,22 +30,16 @@ class Auth extends CI_Controller
     {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
-        $passwordhash = '$2y$10$K4V4HWUv3ZHEe';
+        #$passwordhash = '$2y$10$K4V4HWUv3ZHEe';
         $user = $this->db->get_where('siswa', ['username' => $username])->row_array();
-        /*
-        var_dump($username);
-        var_dump($password);
-        var_dump($passwordhash);
-        var_dump($user);
-        if (password_verify($password, $passwordhash)) {
-            echo 'pler';
-        }
-        die;
-        */
+        #$user = $this->db->get_where('guru', ['username' => $username])->row_array();
+        #var_dump($user);
+        #var_dump($password);
+        #if($user['pass'])
+        #die;
         if ($user) {
-            //user exist
-            //if (($password == $user['password'])) {
 
+            #if ($user['password'] == $password) {
             if (password_verify($password, $user['password'])) {
                 $data = [
                     'username' => $user['username']
@@ -105,7 +99,6 @@ class Auth extends CI_Controller
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 
             ];
-
             $this->db->insert('siswa', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Yeay! yout account has been created. Please login</div>');
