@@ -30,11 +30,12 @@ class Auth extends CI_Controller
     {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
-        #$passwordhash = '$2y$10$K4V4HWUv3ZHEe';
-        $user = $this->db->get_where('siswa', ['username' => $username])->row_array();
+        $passwordhash = password_hash($password, PASSWORD_DEFAULT);
+        $user = $this->db->get_where('admin', ['username' => $username])->row_array();
         #$user = $this->db->get_where('guru', ['username' => $username])->row_array();
         #var_dump($user);
         #var_dump($password);
+        #var_dump($passwordhash);
         #if($user['pass'])
         #die;
         if ($user) {
@@ -46,7 +47,8 @@ class Auth extends CI_Controller
 
                 ];
                 $this->session->set_userdata($data);
-                redirect('siswa');
+                #redirect('siswa');
+                redirect('admin');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> wrong password.</div>');
                 redirect('auth');
