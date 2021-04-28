@@ -86,5 +86,9 @@
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->
+        <p class="mb-1">
+            <span class="fas fa-angle-left"></span>
+            <a href="<?= base_url('landing'); ?>">back</a>
+        </p>
     </div>
     <!-- /.register-box -->

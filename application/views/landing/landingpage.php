@@ -12,11 +12,11 @@
 <body>
   <nav class="nav">
     <div class="container">
-      <h1 class="logo"><a href="/index.html">Grand Master Course </a></h1>
+      <h1 class="logo"><a href="#">Grand Master Course </a></h1>
       <ul>
         <li><a href="#" class="current">Home</a></li>
         <li><a href="<?= base_url('auth'); ?>">Login</a></li>
-        <li><a href="#">Registration</a></li>
+        <li><a href="<?= base_url('auth/registration'); ?>">Registration</a></li>
         <li><a href="#">About</a></li>
       </ul>
     </div>
