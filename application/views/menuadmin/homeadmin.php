@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/jsgrid/jsgrid.min.css">
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/jsgrid/jsgrid-theme.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -103,139 +108,175 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Blank Page</h1>
+                            <h2>SISWA</h2>
                         </div>
 
                     </div>
-                </div><!-- /.container-fluid -->
+                </div>
             </section>
 
             <!-- Main content -->
             <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">List Data Siswa</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Create Siswa</button>
+                                    <table id="example2" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Id Siswa</th>
+                                                <th>Nama</th>
+                                                <th>No. Telp</th>
+                                                <th>Alamat</th>
+                                                <th>Email</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>001</td>
+                                                <td>Achmad Alfansyah Sinambela</td>
+                                                <td>0836548451</td>
+                                                <td>Jln BSD</td>
+                                                <td>haha@gmail.com</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalEdit"><i class="fas fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
 
-
-                <div>
-                    <h1>BERSKI</h1>
-                </div>
-
-            </section>
-            <section class="content">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">jsGrid</h3>
+                        </div>
+                        <!-- /.col -->
                     </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <div id="jsGrid1" class="jsgrid" style="position: relative; height: 100%; width: 100%;">
-                            <div class="jsgrid-grid-header jsgrid-header-scrollbar">
-                                <table class="jsgrid-table">
-                                    <tr class="jsgrid-header-row">
-                                        <th class="jsgrid-header-cell jsgrid-header-sortable jsgrid-header-sort jsgrid-header-sort-desc" style="width: 150px;">Name</th>
-                                        <th class="jsgrid-header-cell jsgrid-align-right jsgrid-header-sortable" style="width: 50px;">Age</th>
-                                        <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 200px;">Address</th>
-                                        <th class="jsgrid-header-cell jsgrid-align-center jsgrid-header-sortable" style="width: 100px;">Country</th>
-                                        <th class="jsgrid-header-cell jsgrid-align-center jsgrid-header-sortable" style="width: 100px;">Is Married</th>
-                                    </tr>
-                                    <tr class="jsgrid-filter-row" style="display: none;">
-                                        <td class="jsgrid-cell" style="width: 150px;"><input type="text"></td>
-                                        <td class="jsgrid-cell jsgrid-align-right" style="width: 50px;"><input type="number"></td>
-                                        <td class="jsgrid-cell" style="width: 200px;"><input type="text"></td>
-                                        <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><select>
-                                                <option value="0"></option>
-                                                <option value="1">United States</option>
-                                                <option value="2">Canada</option>
-                                                <option value="3">United Kingdom</option>
-                                                <option value="4">France</option>
-                                                <option value="5">Brazil</option>
-                                                <option value="6">China</option>
-                                                <option value="7">Russia</option>
-                                            </select></td>
-                                        <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" readonly=""></td>
-                                    </tr>
-                                    <tr class="jsgrid-insert-row" style="display: none;">
-                                        <td class="jsgrid-cell" style="width: 150px;"><input type="text"></td>
-                                        <td class="jsgrid-cell jsgrid-align-right" style="width: 50px;"><input type="number"></td>
-                                        <td class="jsgrid-cell" style="width: 200px;"><input type="text"></td>
-                                        <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><select>
-                                                <option value="0"></option>
-                                                <option value="1">United States</option>
-                                                <option value="2">Canada</option>
-                                                <option value="3">United Kingdom</option>
-                                                <option value="4">France</option>
-                                                <option value="5">Brazil</option>
-                                                <option value="6">China</option>
-                                                <option value="7">Russia</option>
-                                            </select></td>
-                                        <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox"></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="jsgrid-grid-body" style="height: 817px;">
-                                <table class="jsgrid-table">
-                                    <tbody>
-                                        <tr class="jsgrid-row">
-                                            <td class="jsgrid-cell" style="width: 150px;">Zachery Atkins</td>
-                                            <td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">30</td>
-                                            <td class="jsgrid-cell" style="width: 200px;">549-2208 Auctor. Road</td>
-                                            <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">United States</td>
-                                            <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td>
-                                        </tr>
-                                        <tr class="jsgrid-alt-row">
-                                            <td class="jsgrid-cell" style="width: 150px;">Xena Wilkerson</td>
-                                            <td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">63</td>
-                                            <td class="jsgrid-cell" style="width: 200px;">Ap #303-6974 Proin Street</td>
-                                            <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">United States</td>
-                                            <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td>
-                                        </tr>
-
-                                        <tr class="jsgrid-alt-row">
-                                            <td class="jsgrid-cell" style="width: 150px;">Ruby Rocha</td>
-                                            <td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">62</td>
-                                            <td class="jsgrid-cell" style="width: 200px;">5212 Sagittis Ave</td>
-                                            <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Canada</td>
-                                            <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="jsgrid-pager-container">
-                                <div class="jsgrid-pager">Pages: <span class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button"><a href="javascript:void(0);">First</a></span> <span class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button"><a href="javascript:void(0);">Prev</a></span> <span class="jsgrid-pager-page jsgrid-pager-current-page">1</span><span class="jsgrid-pager-page"><a href="javascript:void(0);">2</a></span><span class="jsgrid-pager-page"><a href="javascript:void(0);">3</a></span><span class="jsgrid-pager-page"><a href="javascript:void(0);">4</a></span><span class="jsgrid-pager-page"><a href="javascript:void(0);">5</a></span> <span class="jsgrid-pager-nav-button"><a href="javascript:void(0);">Next</a></span> <span class="jsgrid-pager-nav-button"><a href="javascript:void(0);">Last</a></span> &nbsp;&nbsp; 1 of 5 </div>
-                            </div>
-                            <div class="jsgrid-load-shader" style="display: none; position: absolute; inset: 0px; z-index: 1000;"></div>
-                            <div class="jsgrid-load-panel" style="display: none; position: absolute; top: 50%; left: 50%; z-index: 1000;">Please, wait...</div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </section>
+            <!-- Modal Create -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Form Create -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Username:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Password:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Nama:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">No.Telp:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Email:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Alamat:</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                            <!-- Form Create -->
                         </div>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
-            </section>
-            <!-- /.content -->
+            </div>
+            <!-- Modal Create -->
+            <!-- Modal Edit -->
+            <div class="modal fade" id="exampleModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Form Edit -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Username:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Password:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Nama:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">No.Telp:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Email:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Alamat:</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                            <!-- Form Edit -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Edit -->
+
         </div>
         <!-- /.content-wrapper -->
 
+        <!-- Content Footer -->
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.1.0
             </div>
             <strong>Copyright &copy; 2021-2021 <a href="#">Grand Master Course</a>.</strong> All rights reserved.
         </footer>
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+        <!-- Content Footer -->
     </div>
     <!-- ./wrapper -->
 
-    <!-- jQuery -->
     <script src="<?= base_url('assets'); ?>/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
     <script src="<?= base_url('assets'); ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
     <script src="<?= base_url('assets'); ?>/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../dist/js/demo.js"></script>
 
 </body>
 
