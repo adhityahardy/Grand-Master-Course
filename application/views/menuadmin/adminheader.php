@@ -83,13 +83,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('admin/listmatpel'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Matpel</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('admin/listjadwal'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Jadwal</p>
                             </a>

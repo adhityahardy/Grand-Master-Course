@@ -55,3 +55,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['admin/listadmin'] = 'Admin/listadmin';
 $route['admin/listguru'] = 'Admin/listguru';
+$route['admin/listmatpel'] = 'Admin/listmatpel';
+$route['admin/listjadwal'] = 'Admin/listjadwal';
