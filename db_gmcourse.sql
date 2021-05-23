@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2021 at 06:27 PM
+-- Generation Time: May 23, 2021 at 07:38 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -66,7 +66,8 @@ INSERT INTO `guru` (`idGuru`, `namaGuru`, `noHp`, `alamat`, `username`, `passwor
 (1, 'Hadian Syafiar', '081273625123', 'Komplek Taman Melati 2 nomor 5', 'hadian1', '123456'),
 (2, 'Kusuma Ningrat', '081263532782', 'Jalan Merdeka nomor 3', 'kusuma1', '123456'),
 (3, 'Andi Bertoli', '081245672123', 'Jalan Kasuari nomor 5', 'andi1', '123456'),
-(4, 'Jimbon Mahardika', '081234234213', 'Jalan Kusuma Jaya nomor 6', 'jimbon1', '123456');
+(4, 'Jimbon Mahardika', '081234234213', 'Jalan Kusuma Jaya nomor 6', 'jimbon1', '123456'),
+(27, 'asdasdas', 'asdasd', 'asdasd', 'asdasdasd', 'asdasdasdad');
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,8 @@ CREATE TABLE `matpel` (
 INSERT INTO `matpel` (`idMatpel`, `namaMatpel`, `idGuru`, `namaGuru`) VALUES
 (1, 'Biologi', 1, 'Hadian Syafiar'),
 (2, 'Matematika', 2, 'Kusuma Ningrat'),
-(3, 'Kimia', 3, 'Andi Bertoli');
+(3, 'Kimia', 3, 'Andi Bertoli'),
+(10, 'asdasda', 27, 'asdasdas');
 
 -- --------------------------------------------------------
 
@@ -192,7 +194,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `idGuru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idGuru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `jadwal`
@@ -204,7 +206,7 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `matpel`
 --
 ALTER TABLE `matpel`
-  MODIFY `idMatpel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idMatpel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `siswa`
@@ -228,7 +230,7 @@ ALTER TABLE `jadwal`
 -- Constraints for table `matpel`
 --
 ALTER TABLE `matpel`
-  ADD CONSTRAINT `matpel_ibfk_1` FOREIGN KEY (`idGuru`) REFERENCES `matpel` (`idMatpel`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `matpel_ibfk_1` FOREIGN KEY (`idGuru`) REFERENCES `guru` (`idGuru`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
