@@ -35,16 +35,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($list_data as $matpel) { ?>
+                                    <?php
+                                    if ($list_data) {
+                                        foreach ($list_data as $matpel) {
+                                    ?>
+                                            <tr>
+                                                <td><?= $matpel['idMatpel'] ?></td>
+                                                <td><?= $matpel['namaMatpel'] ?></td>
+                                                <td><?= $matpel['idGuru'] ?></td>
+                                                <td><?= $matpel['namaGuru'] ?></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalEdit"><i class="fas fa-edit"></i></button>
+                                                    <a type="button" class="btn btn-danger" href="<?= base_url('admin/deleteMatpel?id=' . $matpel['idMatpel']) ?>" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                        <?php }
+                                    } else { ?>
                                         <tr>
-                                            <td><?= $matpel['idMatpel'] ?></td>
-                                            <td><?= $matpel['namaMatpel'] ?></td>
-                                            <td><?= $matpel['idGuru'] ?></td>
-                                            <td><?= $matpel['namaGuru'] ?></td>
-                                            <td>
-                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalEdit"><i class="fas fa-edit"></i></button>
-                                                <a type="button" class="btn btn-danger" href="<?= base_url('admin/deleteMatpel?id=' . $matpel['idMatpel']) ?>" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i></a>
-                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -75,15 +87,22 @@
                     <form method="post" action="<?php echo base_url() . 'Admin/createMatpel'; ?>">
                         <div class="form-group">
                             <label>Nama Matpel</label>
-                            <input type="text" name="namaMatpel" class="form-control">
+                            <input type="text" name="namaMatpel" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Nama Guru</label>
-                            <input type="text" name="namaGuru" class="form-control">
+                            <select name="idGuru" class="custom-select">
+                                <option value="" selected disabled>Pilih Guru</option>
+                                <?php foreach ($guru as $g) : ?>
+                                    <option value="<?= $g['idGuru'] ?>"><?= $g['namaGuru'] ?></option>
+                                <?php endforeach; ?>
+
+                            </select>
+                            <!--<input type="text" name="namaGuru" class="form-control" required> -->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                     <!-- Form Create -->

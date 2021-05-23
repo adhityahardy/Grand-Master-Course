@@ -37,18 +37,33 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($list_data as $guru) { ?>
+                                    <?php
+                                    if ($list_data) {
+                                        foreach ($list_data as $guru) {
+                                    ?>
+                                            <tr>
+                                                <td><?= $guru['idGuru'] ?></td>
+                                                <td><?= $guru['namaGuru'] ?></td>
+                                                <td><?= $guru['noHp'] ?></td>
+                                                <td><?= $guru['alamat'] ?></td>
+                                                <td><?= $guru['username'] ?></td>
+                                                <td><?= $guru['password'] ?></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalEdit"><i class="fas fa-edit"></i></button>
+                                                    <a type="button" class="btn btn-danger" href="<?= base_url('admin/deleteGuru?id=' . $guru['idGuru']) ?>" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                        <?php }
+                                    } else {
+                                        ?>
                                         <tr>
-                                            <td><?= $guru['idGuru'] ?></td>
-                                            <td><?= $guru['namaGuru'] ?></td>
-                                            <td><?= $guru['noHp'] ?></td>
-                                            <td><?= $guru['alamat'] ?></td>
-                                            <td><?= $guru['username'] ?></td>
-                                            <td><?= $guru['password'] ?></td>
-                                            <td>
-                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalEdit"><i class="fas fa-edit"></i></button>
-                                                <a type="button" class="btn btn-danger" href="<?= base_url('admin/deleteGuru?id=' . $guru['idGuru']) ?>" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i></a>
-                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

@@ -37,7 +37,6 @@ class Admin extends CI_Controller
         $data['title'] = 'GM Course admin';
         $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 
-
         $data["list_data"] = $this->GuruModel->getData();
         $this->load->view('/menuadmin/adminheader', $data);
         $this->load->view('/menuadmin/listguru', $data);
@@ -69,7 +68,7 @@ class Admin extends CI_Controller
         $data['title'] = 'GM Course admin';
         $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 
-
+        $data['guru'] = $this->GuruModel->getData();
         $data["list_data"] = $this->MatpelModel->getData();
         $this->load->view('/menuadmin/adminheader', $data);
         $this->load->view('/menuadmin/listmatpel', $data);
@@ -111,18 +110,24 @@ class Admin extends CI_Controller
         redirect('admin/listguru');
     }
 
-    // public function createMatpel()
-    // {
-    //     $namaMatpel = $this->input->post('namaMatpel');
-    //     $namaGuru = $this->input->post('namaGuru');
-
-    //     $data = array(
-    //         'namaMatpel'  => $namaMatpel,
-    //         'namaGuru'    => $namaGuru,
-    //     );
-    //     $this->MatpelModel->insert($data, 'matpel');
-    //     redirect('admin/listmatpel');
-    // }
+    public function createMatpel()
+    {
+        $namaMatpel = $this->input->post('namaMatpel');
+        $idGuru = $this->input->post('idGuru');
+        $listguru = $this->GuruModel->getData();
+        foreach ($listguru as $guru) {
+            if ($idGuru == $guru['idGuru']) {
+                $namaGuru = $guru['namaGuru'];
+            }
+        }
+        $data = array(
+            'namaMatpel'  => $namaMatpel,
+            'idGuru'    => $idGuru,
+            'namaGuru'    => $namaGuru,
+        );
+        $this->MatpelModel->insert($data, 'matpel');
+        redirect('admin/listmatpel');
+    }
 
     // public function createJadwal()
     // {

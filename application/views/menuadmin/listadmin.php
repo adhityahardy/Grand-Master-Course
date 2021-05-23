@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h2>SISWA</h2>
+                    <h2>Admin</h2>
                 </div>
 
             </div>

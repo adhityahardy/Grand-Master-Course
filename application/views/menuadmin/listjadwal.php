@@ -40,18 +40,32 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($list_data as $jadwal) { ?>
+                                    <?php
+                                    if ($list_data) {
+                                        foreach ($list_data as $jadwal) { ?>
+                                            <tr>
+                                                <td><?= $jadwal['idJadwal'] ?></td>
+                                                <td><?= $jadwal['hariJadwal'] ?></td>
+                                                <td><?= $jadwal['jamJadwal'] ?></td>
+                                                <td><?= $jadwal['namaMatpel'] ?></td>
+                                                <td><?= $jadwal['namaGuru'] ?></td>
+                                                <td><?= $jadwal['namaSiswa'] ?></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalEdit"><i class="fas fa-edit"></i></button>
+                                                    <a type="button" class="btn btn-danger" href="<?= base_url('admin/deleteJadwal?id=' . $jadwal['idJadwal']) ?>" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                        <?php }
+                                    } else {
+                                        ?>
                                         <tr>
-                                            <td><?= $jadwal['idJadwal'] ?></td>
-                                            <td><?= $jadwal['hariJadwal'] ?></td>
-                                            <td><?= $jadwal['jamJadwal'] ?></td>
-                                            <td><?= $jadwal['namaMatpel'] ?></td>
-                                            <td><?= $jadwal['namaGuru'] ?></td>
-                                            <td><?= $jadwal['namaSiswa'] ?></td>
-                                            <td>
-                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalEdit"><i class="fas fa-edit"></i></button>
-                                                <a type="button" class="btn btn-danger" href="<?= base_url('admin/deleteJadwal?id=' . $jadwal['idJadwal']) ?>" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i></a>
-                                            </td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -72,7 +86,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Create Jadwal</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -86,11 +100,11 @@
                         </div>
                         <div class="form-group">
                             <label>Jam</label>
-                            <input type="text" name="nohp" class="form-control">
+                            <input type="text" name="nohp" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Matpel</label>
-                            <input type="text" name="alamat" class="form-control">
+                            <input type="text" name="alamat" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Guru</label>
@@ -102,7 +116,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                     <!-- Form Create -->
