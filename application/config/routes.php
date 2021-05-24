@@ -57,4 +57,5 @@ $route['admin/listadmin'] = 'Admin/listadmin';
 $route['admin/listguru'] = 'Admin/listguru';
 $route['admin/listmatpel'] = 'Admin/listmatpel';
 $route['admin/listjadwal'] = 'Admin/listjadwal';
+$route['admin/listsiswa'] = 'Admin/listsiswa';
 //$route['']

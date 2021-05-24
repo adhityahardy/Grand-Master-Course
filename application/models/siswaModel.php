@@ -1,39 +1,63 @@
-<!-- <?php
-// class siswaModel extends CI_Model
-// {
-//     public function createSiswa($data)
-//     {
-//         $result = $this->db->insert('siswa', $data);
-//         return $result;
-//     }
-//     public function updateSiswa($idSiswa, $data)
-//     {
-//         $this->db->where('idSiswa', $idSiswa);
-//         $result = $this->db->update('siswa', $data);
-//         return $result;
-//     }
-//     public function getNamaSiswa($idSiswa)
-//     {
-//         $this->db->select('namaSiswa');
-//         $this->db->from('siswa');
-//         $this->db->where('idSiswa', $idSiswa);
-//         $result = $this->db->get()->result_array();
-//         return $result;
-//     }
-//     public function getSiswa($idSiswa)
-//     {
-//         $this->db->where('idSiswa', $idSiswa);
-//         $result = $this->db->get('siswa')->row_array();
-//         return $result;
-//     }
-//     public function getAllSiswa()
-//     {
-//         $result = $this->db->get('siswa')->result_array();
-//         return $result;
-//     }
-//     public function deleteSiswa($idSiswa)
-//     {
-//         $this->db->where('idSiswa', $idSiswa);
-//         return $this->db->delete('siswa');
-//     }
-// }
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class SiswaModel extends CI_Model
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->database();
+        $this->userTbl = 'siswa';
+    }
+
+    public function getData($params = array())
+    {
+        $this->db->select('*');
+        $this->db->from($this->userTbl);
+
+        if (array_key_exists("conditions", $params)) {
+            foreach ($params['conditions'] as $key => $value) {
+                $this->db->where($key, $value);
+            }
+        }
+        if (array_key_exists("idSiswa", $params)) {
+            $this->db->where('idSiswa', $params['idSiswa']);
+            $query = $this->db->get();
+            $result = $query->row_array();
+        } else {
+            if (array_key_exists("start", $params) && array_key_exists("limit", $params)) {
+                $this->db->limit($params['limit'], $params['start']);
+            } else if (!array_key_exists("start", $params) && array_key_exists("limit", $params)) {
+                $this->db->limit($params['limit']);
+            }
+            if (array_key_exists("returnType", $params) && $params['returnType'] == 'count') {
+                $result = $this->db->count_all_results();
+            } else if (array_key_exists("returnType", $params) && $params['returnType'] == 'single') {
+                $query = $this->db->get();
+                $result = ($query->num_rows() > 0) ? $query->row_array() : false;
+            } else {
+                $query = $this->db->get();
+                $result = ($query->num_rows() > 0) ? $query->result_array() : false;
+            }
+        }
+        return $result;
+    }
+
+    public function insert($data)
+    {
+        $insert = $this->db->insert($this->userTbl, $data);
+        return $insert ? $this->db->insert_id() : false;
+    }
+
+    public function update($data, $id)
+    {
+        $update = $this->db->update($this->userTbl, $data, array('idSiswa' => $id));
+        return $update ? true : false;
+    }
+
+    public function delete($id)
+    {
+        $delete = $this->db->delete($this->userTbl, array('idSiswa' => $id));
+        return $delete ? true : false;
+    }
+}
