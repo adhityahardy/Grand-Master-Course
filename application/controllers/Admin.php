@@ -12,6 +12,7 @@ class Admin extends CI_Controller
         $this->load->model('AdminModel');
         $this->load->model('MatpelModel');
         $this->load->model('JadwalModel');
+        $this->load->model('SiswaModel');
     }
     public function index()
     {
@@ -91,6 +92,22 @@ class Admin extends CI_Controller
         $this->load->view('/menuadmin/adminfooter', $data);
     }
 
+    public function listsiswa()
+    {
+        #$data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+        #echo 'WELKAM' . $data['admin']['username'];
+
+
+        $data['title'] = 'GM Course admin';
+        $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+
+
+        $data["list_data"] = $this->SiswaModel->getData();
+        $this->load->view('/menuadmin/adminheader', $data);
+        $this->load->view('/menuadmin/listsiswa', $data);
+        $this->load->view('/menuadmin/adminfooter', $data);
+    }
+
     public function createGuru()
     {
         $namaGuru = $this->input->post('namaGuru');
@@ -108,6 +125,25 @@ class Admin extends CI_Controller
         );
         $this->GuruModel->insert($data, 'guru');
         redirect('admin/listguru');
+    }
+
+    public function createSiswa()
+    {
+        $namaSiswa = $this->input->post('namaSiswa');
+        $nohp = $this->input->post('nohp');
+        $alamat = $this->input->post('alamat');
+        $email = $this->input->post('email');
+        $username = $this->input->post('username');
+
+        $data = array(
+            'namaSiswa'  => $namaSiswa,
+            'nohp'      => $nohp,
+            'alamat'    => $alamat,
+            'email'    => $email,
+            'username'  => $username,
+        );
+        $this->SiswaModel->insert($data, 'siswa');
+        redirect('admin/listsiswa');
     }
 
     public function createMatpel()
@@ -168,6 +204,16 @@ class Admin extends CI_Controller
         $delete = $this->JadwalModel->delete($id);
         if ($delete) {
             redirect(base_url('admin/listjadwal'));
+        } else {
+        }
+    }
+
+    public function deleteSiswa()
+    {
+        $id = $this->input->get('id');
+        $delete = $this->SiswaModel->delete($id);
+        if ($delete) {
+            redirect(base_url('admin/listsiswa'));
         } else {
         }
     }
