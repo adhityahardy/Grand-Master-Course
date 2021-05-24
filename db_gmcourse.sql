@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< Updated upstream
 -- Generation Time: May 23, 2021 at 07:38 PM
+=======
+-- Generation Time: May 24, 2021 at 06:46 PM
+>>>>>>> Stashed changes
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -67,7 +71,11 @@ INSERT INTO `guru` (`idGuru`, `namaGuru`, `noHp`, `alamat`, `username`, `passwor
 (2, 'Kusuma Ningrat', '081263532782', 'Jalan Merdeka nomor 3', 'kusuma1', '123456'),
 (3, 'Andi Bertoli', '081245672123', 'Jalan Kasuari nomor 5', 'andi1', '123456'),
 (4, 'Jimbon Mahardika', '081234234213', 'Jalan Kusuma Jaya nomor 6', 'jimbon1', '123456'),
+<<<<<<< Updated upstream
 (27, 'asdasdas', 'asdasd', 'asdasd', 'asdasdasd', 'asdasdasdad');
+=======
+(29, 'asda', 'asdasd', 'asdsad', 'asdasd', '');
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
@@ -77,8 +85,8 @@ INSERT INTO `guru` (`idGuru`, `namaGuru`, `noHp`, `alamat`, `username`, `passwor
 
 CREATE TABLE `jadwal` (
   `idJadwal` int(11) NOT NULL,
-  `hariJadwal` varchar(15) NOT NULL,
-  `jamJadwal` time(6) NOT NULL,
+  `hariJadwal` date NOT NULL,
+  `jamJadwal` time NOT NULL,
   `idMatpel` int(11) NOT NULL,
   `idGuru` int(11) NOT NULL,
   `idSiswa` int(11) NOT NULL,
@@ -92,9 +100,8 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`idJadwal`, `hariJadwal`, `jamJadwal`, `idMatpel`, `idGuru`, `idSiswa`, `namaMatpel`, `namaGuru`, `namaSiswa`) VALUES
-(1, 'Senin', '15:00:00.000000', 1, 1, 1, 'Biologi', 'Hadian Syafiar', 'siswa1'),
-(2, 'Selasa', '14:00:00.000000', 2, 2, 1, 'Matematika', 'Kusuma Ningrat', 'siswa1'),
-(3, 'Rabu', '18:00:00.000000', 3, 3, 1, 'Kimia', 'Andi Bertoli', 'siswa1');
+(1, '2021-05-17', '15:00:00', 1, 1, 15, 'Biologi', 'Hadian Syafiar', 'siswa1'),
+(2, '2021-05-18', '17:00:00', 2, 2, 16, 'Matematika', 'Kusuma Ningrat', 'siswa2');
 
 -- --------------------------------------------------------
 
@@ -140,7 +147,8 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`idSiswa`, `namaSiswa`, `noHp`, `alamat`, `email`, `username`, `password`) VALUES
-(1, 'siswa1', '08126372192', 'alamat1', 'siswa1@gmail.com', 'siswa1', '123456');
+(15, 'siswa1', '0791283123', 'alamat1', 'siswa1@gmail.com', 'siswa1', '$2y$10$DJEMRwJgDELmA0jz.huD4e7.dK/6K7SO4C6nEpb4KcIiBNkdR6MA2'),
+(16, 'siswa2', '082813123131', 'alamat2', 'siswa2@gmail.com', 'siswa2', '$2y$10$yqNv6rBwbcSYF0T1c/L5Wu4I/54MijHzutXin9fw.aqbwmbvQtsS6');
 
 --
 -- Indexes for dumped tables
@@ -194,7 +202,11 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
+<<<<<<< Updated upstream
   MODIFY `idGuru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+=======
+  MODIFY `idGuru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+>>>>>>> Stashed changes
 
 --
 -- AUTO_INCREMENT for table `jadwal`
@@ -206,13 +218,17 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `matpel`
 --
 ALTER TABLE `matpel`
+<<<<<<< Updated upstream
   MODIFY `idMatpel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+=======
+  MODIFY `idMatpel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+>>>>>>> Stashed changes
 
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `idSiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idSiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
