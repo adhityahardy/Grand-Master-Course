@@ -45,7 +45,7 @@
                                         foreach ($list_data as $jadwal) { ?>
                                             <tr>
                                                 <td><?= $jadwal['idJadwal'] ?></td>
-                                                <td><?= $jadwal['hariJadwal'] ?></td>
+                                                <td><?= $jadwal['tanggalJadwal'] ?></td>
                                                 <td><?= $jadwal['jamJadwal'] ?></td>
                                                 <td><?= $jadwal['namaMatpel'] ?></td>
                                                 <td><?= $jadwal['namaGuru'] ?></td>
@@ -95,24 +95,74 @@
                     <!-- Form Create -->
                     <form method="post" action="<?php echo base_url() . 'Admin/createJadwal'; ?>">
                         <div class="form-group">
-                            <label>Hari</label>
-                            <input type="text" name="namaGuru" class="form-control" required>
+                            <label>Tanggal</label>
+                            <div class="input-group date" id="reservationdate" name="hariJadwal" data-target-input="nearest">
+                                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                                <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggalJadwal" />
+
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Jam</label>
-                            <input type="text" name="nohp" class="form-control" required>
+                            <div class="input-group date" id="timepicker" name="tanggalJadwal" data-target-input="nearest">
+                                <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                </div>
+                                <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" name="jamJadwal" />
+
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Matpel</label>
-                            <input type="text" name="alamat" class="form-control" required>
+                            <!-- <input type="text" name="Matpel" class="form-control" required> -->
+                            <select id="selectMatpel" name="namaMatpel" class="custom-select" onchange="selectMatpelFunc()">
+                                <option value="" selected disabled>Pilih Matpel</option>
+                                <?php $new_arr = [];
+                                #$tess = $matpel;
+
+                                ?>
+
+                                <?php foreach ($matpel as $m) {
+                                    if (!(in_array($m['namaMatpel'], $new_arr))) {
+                                        array_push($new_arr, $m['namaMatpel']);
+                                        #$tess = $m['namaMatpel'];
+                                ?>
+                                        <option value="<?= $m['namaMatpel'] ?>"><?= $m['namaMatpel'] ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                <?php } ?>
+
+                            </select>
                         </div>
+
+
+
+                        <!--<input type="text" id="listguru" hidden value="<?= $tess ?>"> -->
                         <div class="form-group">
                             <label>Guru</label>
-                            <input type="text" name="username" class="form-control" required>
+                            <select id="selectGuru" name="namaGuru" class="custom-select">
+                                <!-- <option value="" selected disabled>Pilih Guru</option>
+                                
+                                <?php foreach ($guru as $g) : ?>
+                                    <option value="<?= $g['idGuru'] ?>"><?= $g['namaGuru'] ?></option>
+                                <?php endforeach; ?> -->
+
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Siswa</label>
-                            <input type="text" name="password" class="form-control" required>
+                            <!-- <input type="text" name="password" class="form-control" required> -->
+                            <select id="selectSiswa" name="idSiswa" class="custom-select">
+                                <!-- <option value="" selected disabled>Pilih Guru</option> -->
+                                <option value="" selected disabled>Pilih Siswa</option>
+                                <?php foreach ($siswa as $s) : ?>
+                                    <option value="<?= $s['idSiswa'] ?>"><?= $s['namaSiswa'] ?></option>
+                                <?php endforeach; ?> -->
+
+                            </select>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

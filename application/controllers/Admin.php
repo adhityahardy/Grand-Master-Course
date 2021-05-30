@@ -84,12 +84,34 @@ class Admin extends CI_Controller
 
         $data['title'] = 'GM Course admin';
         $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
-
-
+        $data['siswa'] = $this->SiswaModel->getData();
+        $data['guru'] = $this->GuruModel->getData();
+        $data['matpel'] = $this->MatpelModel->getData();
         $data["list_data"] = $this->JadwalModel->getData();
         $this->load->view('/menuadmin/adminheader', $data);
         $this->load->view('/menuadmin/listjadwal', $data);
         $this->load->view('/menuadmin/adminfooter', $data);
+    }
+
+    public function getGuruByMatpel($namaMatpel)
+    {
+        //var_dump($namaMatpel);
+        //$data['selectedMatpel'] = $namaMatpel;
+        $data['selectedMatpel'] = '';
+        $con['conditions'] = array(
+            'namaMatpel' => $namaMatpel,
+        );
+        $listmatpel = $this->MatpelModel->getData($con);
+
+        foreach ($listmatpel as $matpel) :
+            //if ($matpel['namaMatpel'] == $namaMatpel) {
+            $data['selectedMatpel'] .=  '<option value="' . $matpel['namaGuru'] . '">' . $matpel['namaGuru'] . '</option>';
+        //}
+        endforeach;
+        print_r(json_encode($data));
+        //$data = $this->;
+        //die();
+        //return json_encode($namaMatpel);
     }
 
     public function listsiswa()
@@ -165,18 +187,61 @@ class Admin extends CI_Controller
         redirect('admin/listmatpel');
     }
 
-    // public function createJadwal()
-    // {
-    //     $hariJadwal = $this->input->post('hariJadwal');
-    //     $jamJadwal = $this->input->post('jamJadwal');
+    public function createJadwal()
+    {
+        //$hariJadwal = $this->input->post('hariJadwal');
+        //$jamJadwal = $this->input->post('jamJadwal');
+        //$tanggaljadwal = $this->input->post('tanggaljadwal');
+        //$jamjadwal = $this->input->post('jamjadwal');
+        $tanggalJadwal = $this->input->post('tanggalJadwal');
+        $jamJadwal = $this->input->post('jamJadwal');
+        $namaMatpel = $this->input->post('namaMatpel');
+        $namaGuru = $this->input->post('namaGuru');
+        $idSiswa = $this->input->post('idSiswa');
 
-    //     $data = array(
-    //         'hariJadwal'  => $hariJadwal,
-    //         'jamJadwal'   => $jamJadwal,
-    //     );
-    //     $this->JadwalModel->insert($data, 'jadwal');
-    //     redirect('admin/listjadwal');
-    // }
+        $cari = array(
+            'namaMatpel' => $namaMatpel,
+            'namaGuru' => $namaGuru
+        );
+        $query = $this->db->get_where('matpel', $cari)->row_array();
+        $idMatpel = $query['idMatpel'];
+        $idGuru = $query['idGuru'];
+        //$namaSiswa = $this->db->get_where('siswa', ['idSiswa' => $idSiswa]);
+
+        $con['conditions'] = array(
+            'idSiswa' => $idSiswa,
+        );
+        $siswa = $this->SiswaModel->getData($con)[0];
+        $namaSiswa = $siswa['namaSiswa'];
+        //var_dump($siswa);
+        $data = array(
+            'tanggalJadwal'  => $tanggalJadwal,
+            'jamJadwal'      => $jamJadwal,
+            'idMatpel '     => $idMatpel,
+            'idGuru '       => $idGuru,
+            'idSiswa'  => $idSiswa,
+            'namaMatpel'    => $namaMatpel,
+            'namaGuru'    => $namaGuru,
+            'namaSiswa' => $namaSiswa
+        );
+        $this->JadwalModel->insert($data, 'jadwal');
+        redirect('admin/listjadwal');
+        //var_dump($data);
+        //var_dump($tanggaljadwal);
+        //var_dump($jamjadwal);
+        //exit();
+
+        //$listmatpel = $this->MatpelModel->getData();
+
+        /*
+        $data = array(
+            'hariJadwal'  => $hariJadwal,
+            'jamJadwal'   => $jamJadwal,
+        );
+        $this->JadwalModel->insert($data, 'jadwal');
+        redirect('admin/listjadwal');
+        */
+    }
 
     public function deleteGuru()
     {
