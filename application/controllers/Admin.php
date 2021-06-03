@@ -148,14 +148,14 @@ class Admin extends CI_Controller
     public function createGuru()
     {
         $namaGuru = $this->input->post('namaGuru');
-        $nohp = $this->input->post('nohp');
+        $noHp = $this->input->post('noHp');
         $alamat = $this->input->post('alamat');
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
         $data = array(
             'namaGuru'  => $namaGuru,
-            'nohp'      => $nohp,
+            'noHp'      => $noHp,
             'alamat'    => $alamat,
             'username'  => $username,
             'password'  => $password,
@@ -167,14 +167,14 @@ class Admin extends CI_Controller
     public function createSiswa()
     {
         $namaSiswa = $this->input->post('namaSiswa');
-        $nohp = $this->input->post('nohp');
+        $noHp = $this->input->post('noHp');
         $alamat = $this->input->post('alamat');
         $email = $this->input->post('email');
         $username = $this->input->post('username');
 
         $data = array(
             'namaSiswa'  => $namaSiswa,
-            'nohp'      => $nohp,
+            'noHp'      => $noHp,
             'alamat'    => $alamat,
             'email'    => $email,
             'username'  => $username,
@@ -332,7 +332,6 @@ class Admin extends CI_Controller
     {
         $idAdmin = $this->input->post('idAdmin');
         $namaAdmin = $this->input->post('namaAdmin');
-
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $data = array(
@@ -344,6 +343,27 @@ class Admin extends CI_Controller
         //die();
         $this->AdminModel->update($data, $idAdmin);
         redirect('admin/listadmin');
+    }
+
+    public function editGuru()
+    {
+        $idGuru = $this->input->post('idGuru');
+        $namaGuru = $this->input->post('namaGuru');
+        $noHp = $this->input->post('noHp');
+        $alamat = $this->input->post('alamat');
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $data = array(
+            'namaGuru'  => $namaGuru,
+            'noHp'      => $noHp,
+            'alamat'    => $alamat,
+            'username'  => $username,
+            'password'  => $password
+        );
+        // var_dump($data);
+        // die();
+        $this->GuruModel->update($data, $idGuru);
+        redirect('admin/listguru');
     }
     /*
     function editSiswaView()

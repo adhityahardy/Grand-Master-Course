@@ -59,20 +59,20 @@
                                                                 <!-- Form Edit -->
                                                                 <form method="POST" action="<?php echo base_url() . 'Admin/editAdmin'; ?>">
                                                                     <div class="form-group">
-                                                                        <label for="recipient-name" class="col-form-label">Id Admin</label>
+                                                                        <label for="recipient-name" class="col-form-label">Id Admin:</label>
                                                                         <input type="text" name="idAdmin" class="form-control" value="<?= $admin['idAdmin'] ?>" readonly>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="message-text" class="col-form-label">Nama:</label>
-                                                                        <input type="text" name="namaAdmin" class="form-control" value="<?= $admin['namaAdmin'] ?>">
+                                                                        <input type="text" name="namaAdmin" class="form-control" value="<?= $admin['namaAdmin'] ?>" required>
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <label for="message-text" class="col-form-label">Username</label>
-                                                                        <input type="text" name="username" class="form-control" value="<?= $admin['username'] ?>">
+                                                                        <label for="message-text" class="col-form-label">Username:</label>
+                                                                        <input type="text" name="username" class="form-control" value="<?= $admin['username'] ?>" required>
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <label for="message-text" class="col-form-label">Password</label>
-                                                                        <input type="text" name="password" class="form-control">
+                                                                        <label for="message-text" class="col-form-label">New Password:</label>
+                                                                        <input type="text" name="password" class="form-control" required>
                                                                     </div>
 
                                                                     <div class="modal-footer">
@@ -118,15 +118,15 @@
                     <form method="post" action="<?php echo base_url() . 'Admin/createAdmin'; ?>">
                         <div class="form-group">
                             <label for="message-text" class="col-form-label">Nama:</label>
-                            <input type="text" name="namaAdmin" class="form-control">
+                            <input type="text" name="namaAdmin" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="message-text" class="col-form-label">Username:</label>
-                            <input type="text" name="username" class="form-control">
+                            <input type="text" name="username" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="message-text" class="col-form-label">Password:</label>
-                            <input type="text" name="password" class="form-control">
+                            <input type="text" name="password" class="form-control" required>
                         </div>
                         <div class="modal-footer">
                             <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
