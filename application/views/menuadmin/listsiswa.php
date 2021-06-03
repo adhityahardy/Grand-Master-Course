@@ -27,6 +27,7 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                        <th>No.</th>
                                         <th>Id Siswa</th>
                                         <th>Nama Siswa</th>
                                         <th>No. Hp</th>
@@ -39,9 +40,11 @@
                                 <tbody>
                                     <?php
                                     if ($list_data) {
+                                        $nomor = 1;
                                         foreach ($list_data as $siswa) {
                                     ?>
                                             <tr>
+                                                <td><?= $nomor++ ?></td>
                                                 <td><?= $siswa['idSiswa'] ?></td>
                                                 <td><?= $siswa['namaSiswa'] ?></td>
                                                 <td><?= $siswa['noHp'] ?></td>

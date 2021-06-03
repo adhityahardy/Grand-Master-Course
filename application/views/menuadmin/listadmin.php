@@ -27,6 +27,7 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                        <th>No.</th>
                                         <th>Id Admin</th>
                                         <th>Nama</th>
                                         <th>Username</th>
@@ -34,8 +35,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($list_data as $admin) { ?>
+                                    <?php
+                                    $nomor = 1;
+                                    foreach ($list_data as $admin) { ?>
                                         <tr>
+                                            <td><?= $nomor++ ?></td>
                                             <td><?= $admin['idAdmin'] ?></td>
                                             <td><?= $admin['namaAdmin'] ?></td>
                                             <td><?= $admin['username'] ?></td>
