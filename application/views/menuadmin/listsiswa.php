@@ -67,27 +67,27 @@
                                                                     <form method="post" action="<?php echo base_url() . 'Admin/editSiswa'; ?>">
                                                                         <!-- Form Edit -->
                                                                         <div class="form-group">
-                                                                            <label>Id Siswa</label>
+                                                                            <label>Id Siswa:</label>
                                                                             <input type="text" name="idSiswa" id="namaSiswaEdit" class="form-control" value="<?= $siswa['idSiswa'] ?>" readonly>
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label>Nama Siswa</label>
+                                                                            <label>Nama Siswa:</label>
                                                                             <input type="text" name="namaSiswa" id="namaSiswaEdit" class="form-control" value="<?= $siswa['namaSiswa'] ?>" required>
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label>No Hp</label>
+                                                                            <label>No Hp:</label>
                                                                             <input type="text" name="noHp" class="form-control" value="<?= $siswa['noHp'] ?>" required>
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label>Alamat</label>
+                                                                            <label>Alamat:</label>
                                                                             <input type="text" name="alamat" class="form-control" value="<?= $siswa['alamat'] ?>" required>
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label>Email</label>
+                                                                            <label>Email:</label>
                                                                             <input type="text" name="email" class="form-control" value="<?= $siswa['email'] ?>" required validate="required:true">
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label>Username</label>
+                                                                            <label>Username:</label>
                                                                             <input type="text" name="username" class="form-control" value="<?= $siswa['username'] ?>" required>
                                                                         </div>
                                                                         <div class="form-group">
@@ -149,27 +149,27 @@
                     <!-- Form Create -->
                     <form method="post" action="<?php echo base_url() . 'Admin/createSiswa'; ?>">
                         <div class="form-group">
-                            <label>Nama Siswa</label>
+                            <label>Nama Siswa:</label>
                             <input type="text" name="namaSiswa" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>No Hp</label>
-                            <input type="text" name="nohp" class="form-control">
+                            <label>No Hp:</label>
+                            <input type="text" name="noHp" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Alamat</label>
-                            <input type="text" name="alamat" class="form-control">
+                            <label>Alamat:</label>
+                            <input type="text" name="alamat" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
+                            <label>Email:</label>
                             <input type="text" name="email" class="form-control" required validate="required:true">
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
+                            <label>Username:</label>
                             <input type="text" name="username" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
+                            <label>Password:</label>
                             <input type="text" name="password" class="form-control" required>
                         </div>
                         <div class="modal-footer">
