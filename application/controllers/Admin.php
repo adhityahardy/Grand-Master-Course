@@ -282,4 +282,39 @@ class Admin extends CI_Controller
         } else {
         }
     }
+
+    public function editSiswa()
+    {
+        $idSiswa = $this->input->post('idSiswa');
+        $namaSiswa = $this->input->post('namaSiswa');
+        $noHp = $this->input->post('noHp');
+        $alamat = $this->input->post('alamat');
+        $email = $this->input->post('email');
+        $username = $this->input->post('username');
+        $data = array(
+            'namaSiswa'  => $namaSiswa,
+            'noHp'      => $noHp,
+            'alamat'    => $alamat,
+            'email'    => $email,
+            'username'  => $username,
+        );
+        //var_dump($data);
+        //die();
+        $this->SiswaModel->update($data, $idSiswa);
+        redirect('admin/listsiswa');
+    }
+    /*
+    function editSiswaView()
+    {
+        $id = $this->uri->segment(3);
+        $e = $this->db->where('idSiswa', $id)->get('Siswa')->row();
+
+        $kirim['idSiswa'] = $e->idSiswa;
+        //$kirim['nama'] = $e->nama;
+        //$kirim['alamat'] = $e->alamat;
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($kirim));
+    }*/
 }
