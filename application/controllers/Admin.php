@@ -130,6 +130,21 @@ class Admin extends CI_Controller
         $this->load->view('/menuadmin/adminfooter', $data);
     }
 
+    public function createAdmin()
+    {
+        $namaAdmin = $this->input->post('namaAdmin');
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $data = array(
+            'namaAdmin'  => $namaAdmin,
+            'username'  => $username,
+            'password' => $password
+        );
+        var_dump($data);
+        $this->AdminModel->insert($data);
+        redirect('admin/listadmin');
+    }
+
     public function createGuru()
     {
         $namaGuru = $this->input->post('namaGuru');
@@ -243,6 +258,15 @@ class Admin extends CI_Controller
         */
     }
 
+    public function deleteAdmin()
+    {
+        $id = $this->input->get('id');
+        $delete = $this->AdminModel->delete($id);
+        if ($delete) {
+            redirect(base_url('admin/listadmin'));
+        } else {
+        }
+    }
     public function deleteGuru()
     {
         $id = $this->input->get('id');
@@ -302,6 +326,24 @@ class Admin extends CI_Controller
         //die();
         $this->SiswaModel->update($data, $idSiswa);
         redirect('admin/listsiswa');
+    }
+
+    public function editAdmin()
+    {
+        $idAdmin = $this->input->post('idAdmin');
+        $namaAdmin = $this->input->post('namaAdmin');
+
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $data = array(
+            'namaAdmin'  => $namaAdmin,
+            'username'  => $username,
+            'password' => $password
+        );
+        //var_dump($data);
+        //die();
+        $this->AdminModel->update($data, $idAdmin);
+        redirect('admin/listadmin');
     }
     /*
     function editSiswaView()

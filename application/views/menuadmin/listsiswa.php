@@ -49,7 +49,7 @@
                                                 <td><?= $siswa['email'] ?></td>
                                                 <td><?= $siswa['username'] ?></td>
                                                 <td>
-                                                    <a type="button" id='btn-edit' class="btn btn-success" href="<?= base_url('admin/editSiswa?id=' . $siswa['idSiswa']) ?>" data-toggle="modal" data-target="#exampleModalEdit<?php echo $siswa['idSiswa']; ?>" onclick=""><i class=" fas fa-edit"></i></a>
+                                                    <a type="button" id='btn-edit' class="btn btn-success" href="<?= base_url('admin/editSiswa?id=' . $siswa['idSiswa']) ?>" data-toggle="modal" data-target="#exampleModalEdit<?php echo $siswa['idSiswa']; ?>"><i class=" fas fa-edit"></i></a>
                                                     <!-- Modal Edit -->
                                                     <div class="modal fade" id="exampleModalEdit<?php echo $siswa['idSiswa']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
@@ -65,7 +65,7 @@
                                                                         <!-- Form Edit -->
                                                                         <div class="form-group">
                                                                             <label>Id Siswa</label>
-                                                                            <input type="text" name="namaSiswa" id="namaSiswaEdit" class="form-control" value="<?= $siswa['idSiswa'] ?>" readonly>
+                                                                            <input type="text" name="idSiswa" id="namaSiswaEdit" class="form-control" value="<?= $siswa['idSiswa'] ?>" readonly>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label>Nama Siswa</label>
