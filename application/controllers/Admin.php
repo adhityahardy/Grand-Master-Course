@@ -193,6 +193,7 @@ class Admin extends CI_Controller
                 $namaGuru = $guru['namaGuru'];
             }
         }
+        //$namaGuru = $this->db->get_where('guru', $cari)->row_array();
         $data = array(
             'namaMatpel'  => $namaMatpel,
             'idGuru'    => $idGuru,
@@ -332,6 +333,7 @@ class Admin extends CI_Controller
     {
         $idAdmin = $this->input->post('idAdmin');
         $namaAdmin = $this->input->post('namaAdmin');
+
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $data = array(
@@ -344,7 +346,6 @@ class Admin extends CI_Controller
         $this->AdminModel->update($data, $idAdmin);
         redirect('admin/listadmin');
     }
-
     public function editGuru()
     {
         $idGuru = $this->input->post('idGuru');
@@ -364,6 +365,26 @@ class Admin extends CI_Controller
         // die();
         $this->GuruModel->update($data, $idGuru);
         redirect('admin/listguru');
+    }
+    public function editMatpel()
+    {
+        $idMatpel = $this->input->post('idMatpel');
+        $namaMatpel = $this->input->post('namaMatpel');
+        $idGuru = $this->input->post('idGuru');
+        $con['conditions'] = array(
+            'idGuru' => $idGuru,
+        );
+        $guru = $this->GuruModel->getData($con)[0];
+        $namaGuru = $guru['namaGuru'];
+        $data = array(
+            'namaMatpel'  => $namaMatpel,
+            'idGuru' => $idGuru,
+            'namaGuru' => $namaGuru
+        );
+        //var_dump($data);
+        //die();
+        $this->MatpelModel->update($data, $idMatpel);
+        redirect('admin/listmatpel');
     }
     /*
     function editSiswaView()

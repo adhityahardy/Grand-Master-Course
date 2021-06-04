@@ -127,12 +127,9 @@
                                 <?php foreach ($matpel as $m) {
                                     if (!(in_array($m['namaMatpel'], $new_arr))) {
                                         array_push($new_arr, $m['namaMatpel']);
-                                        #$tess = $m['namaMatpel'];
                                 ?>
                                         <option value="<?= $m['namaMatpel'] ?>"><?= $m['namaMatpel'] ?></option>
-                                    <?php
-                                    }
-                                    ?>
+                                    <?php } ?>
                                 <?php } ?>
 
                             </select>

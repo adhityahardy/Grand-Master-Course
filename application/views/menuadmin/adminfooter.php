@@ -240,43 +240,43 @@
             }
 
             $(function() {
-                        $('#btn-edit').click(function(e) {
-                            e.preventDefault();
-                            $('#exampleModalEdit').modal({
-                                backdrop: 'static',
-                                show: true
-                            });
-                            id = $(this).data('idSiswa');
-                            // mengambil nilai data-id yang di click
-                            $.ajax({
-                                url: 'profile/edit/' + id,
-                                success: function(data) {
-                                    $("input[name='namaSiswaEdit']").val(data.idSiswa);
-                                    //$("input[name='nama']").val(data.nama);
-                                    //$("textarea[name='alamat']").val(data.alamat);
-                                }
-                            });
-                        });
-                    }
-                    //var e = "berski";
-                    /*
-                    $(function() {
-                        $("#category").on("change", function() {
-                            reset();
-                            var category = $("#category").val();
-                            $.ajax({
-                                type: "GET",
-                                url: "https://0xgigs.com/ajax/getService/" + category,
-                                dataType: "json",
-                                success: function(data) {
-                                    $("#service").html(data.msg);
-                                },
-                                error: function() {
-                                    alert("Terjadi kesalahan, silakan refresh halaman ini.");
-                                },
-                            });
-                        });
-                    });*/
+                $('#btn-edit').click(function(e) {
+                    e.preventDefault();
+                    $('#exampleModalEdit').modal({
+                        backdrop: 'static',
+                        show: true
+                    });
+                    id = $(this).data('idSiswa');
+                    // mengambil nilai data-id yang di click
+                    $.ajax({
+                        url: 'profile/edit/' + id,
+                        success: function(data) {
+                            $("input[name='namaSiswaEdit']").val(data.idSiswa);
+                            //$("input[name='nama']").val(data.nama);
+                            //$("textarea[name='alamat']").val(data.alamat);
+                        }
+                    });
+                });
+            })
+            //var e = "berski";
+            /*
+            $(function() {
+                $("#category").on("change", function() {
+                    reset();
+                    var category = $("#category").val();
+                    $.ajax({
+                        type: "GET",
+                        url: "https://0xgigs.com/ajax/getService/" + category,
+                        dataType: "json",
+                        success: function(data) {
+                            $("#service").html(data.msg);
+                        },
+                        error: function() {
+                            alert("Terjadi kesalahan, silakan refresh halaman ini.");
+                        },
+                    });
+                });
+            });*/
         </script>
         </body>
 
