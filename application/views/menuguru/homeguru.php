@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+                    <h2>HALO <?= $guru['namaGuru']; ?></h2>
+                </div>
 
-<body>
-    <h1>INI HOME GURU GAIS</h1>
-</body>
+            </div>
+        </div>
+    </section>
 
-</html>
+
+
+</div>
+<!-- /.content-wrapper -->
