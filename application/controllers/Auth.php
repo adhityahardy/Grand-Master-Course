@@ -31,7 +31,72 @@ class Auth extends CI_Controller
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $passwordhash = password_hash($password, PASSWORD_DEFAULT);
-        $user = $this->db->get_where('admin', ['username' => $username])->row_array();
+        if (str_contains($username, 'siswa')) {
+            $user = $this->db->get_where('siswa', ['username' => $username])->row_array();
+            if ($user) {
+
+                #if ($user['password'] == $password) {
+                if (password_verify($password, $user['password'])) {
+                    $data = [
+                        'username' => $user['username']
+
+                    ];
+                    $this->session->set_userdata($data);
+                    #redirect('siswa');
+                    redirect('siswa');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> wrong password.</div>');
+                    redirect('auth');
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> username not found.</div>');
+                redirect('auth');
+            }
+        } else if (str_contains($username, 'admin')) {
+            $user = $this->db->get_where('admin', ['username' => $username])->row_array();
+            if ($user) {
+
+                #if ($user['password'] == $password) {
+                if (password_verify($password, $user['password'])) {
+                    $data = [
+                        'username' => $user['username']
+
+                    ];
+                    $this->session->set_userdata($data);
+                    #redirect('siswa');
+                    redirect('admin');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> wrong password.</div>');
+                    redirect('auth');
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> username not found.</div>');
+                redirect('auth');
+            }
+        } else if (str_contains($username, 'guru')) {
+            $user = $this->db->get_where('guru', ['username' => $username])->row_array();
+            if ($user) {
+
+                #if ($user['password'] == $password) {
+                if (password_verify($password, $user['password'])) {
+                    $data = [
+                        'username' => $user['username']
+
+                    ];
+                    $this->session->set_userdata($data);
+                    #redirect('siswa');
+                    redirect('guru');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> wrong password.</div>');
+                    redirect('auth');
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> username not found.</div>');
+                redirect('auth');
+            }
+        }
+
+        //$user = $this->db->get_where('admin', ['username' => $username])->row_array();
         #$user = $this->db->get_where('guru', ['username' => $username])->row_array();
         #var_dump($user);
         #var_dump($password);

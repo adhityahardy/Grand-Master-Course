@@ -7,6 +7,6 @@ class Guru extends CI_Controller
     {
         $data['guru'] = $this->db->get_where('guru', ['username' => $this->session->userdata('username')])->row_array();
         echo 'WELKAM' . $data['guru']['username'];
-        $this->load->view('homesiswa');
+        $this->load->view('menuguru/homeguru');
     }
 }

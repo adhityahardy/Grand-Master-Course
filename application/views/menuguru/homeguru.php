@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>INI HOME GAIS</h1>
+    <h1>INI HOME GURU GAIS</h1>
 </body>
 
 </html>

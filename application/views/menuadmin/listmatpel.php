@@ -85,7 +85,7 @@
                                                                                 <?php
                                                                                 $new_arr = [];
                                                                                 foreach ($guru as $g) {
-                                                                                    if (!(in_array($g['namaMatpel'], $new_arr))) {
+                                                                                    if (!(in_array($g['namaGuru'], $new_arr))) {
                                                                                         array_push($new_arr, $g['namaGuru']);
                                                                                         if ($g['idGuru'] == $matpel['idGuru']) { ?>
                                                                                             <option value="<?= $g['idGuru'] ?>" selected><?= $g['namaGuru'] ?></option>
@@ -94,9 +94,6 @@
                                                                                         <?php } ?>
                                                                                     <?php } ?>
                                                                                 <?php } ?>
-
-
-
                                                                             </select>
                                                                         </div>
                                                                         <div class="modal-footer">

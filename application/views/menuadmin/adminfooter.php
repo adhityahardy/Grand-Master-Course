@@ -77,6 +77,16 @@
                     }
                 });
 
+                $('#reservationdateEdit').datetimepicker({
+                    format: 'DD/MM/YYYY'
+                });
+
+                //Date and time picker
+                $('#reservationdatetimeEdit').datetimepicker({
+                    icons: {
+                        time: 'far fa-clock'
+                    }
+                });
                 //Date range picker
                 $('#reservation').daterangepicker()
                 //Date range picker with time picker
@@ -107,6 +117,9 @@
 
                 //Timepicker
                 $('#timepicker').datetimepicker({
+                    format: 'HH:mm'
+                })
+                $('#timepickerEdit').datetimepicker({
                     format: 'HH:mm'
                 })
 

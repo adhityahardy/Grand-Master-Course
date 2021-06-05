@@ -6,15 +6,20 @@ class Siswa extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Siswa_Model');
-        $this->load->library('form_validation');
+        $this->load->library('session');
+        $this->load->database();
+        $this->load->model('GuruModel');
+        $this->load->model('AdminModel');
+        $this->load->model('MatpelModel');
+        $this->load->model('JadwalModel');
+        $this->load->model('SiswaModel');
     }
 
     public function index()
     {
         $data['siswa'] = $this->db->get_where('siswa', ['username' => $this->session->userdata('username')])->row_array();
         echo 'WELKAM' . $data['siswa']['username'];
-        $this->load->view('homesiswa');
+        $this->load->view('menusiswa/homesiswa');
     }
 
     public function viewMatpel()

@@ -134,7 +134,7 @@ class Admin extends CI_Controller
     {
         $namaAdmin = $this->input->post('namaAdmin');
         $username = $this->input->post('username');
-        $password = $this->input->post('password');
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
         $data = array(
             'namaAdmin'  => $namaAdmin,
             'username'  => $username,
@@ -151,7 +151,7 @@ class Admin extends CI_Controller
         $noHp = $this->input->post('noHp');
         $alamat = $this->input->post('alamat');
         $username = $this->input->post('username');
-        $password = $this->input->post('password');
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 
         $data = array(
             'namaGuru'  => $namaGuru,
@@ -171,6 +171,7 @@ class Admin extends CI_Controller
         $alamat = $this->input->post('alamat');
         $email = $this->input->post('email');
         $username = $this->input->post('username');
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 
         $data = array(
             'namaSiswa'  => $namaSiswa,
@@ -178,6 +179,7 @@ class Admin extends CI_Controller
             'alamat'    => $alamat,
             'email'    => $email,
             'username'  => $username,
+            'password' => $password
         );
         $this->SiswaModel->insert($data, 'siswa');
         redirect('admin/listsiswa');
@@ -272,6 +274,13 @@ class Admin extends CI_Controller
     {
         $id = $this->input->get('id');
         $delete = $this->GuruModel->delete($id);
+
+        //aditional
+        $matpel = $this->db->get_where('matpel', ['idGuru' => $id])->result();
+        for ($i = 0; $i < count($matpel); $i++) {
+            $idDel = $matpel[$i]->idMatpel;
+            $this->MatpelModel->delete($idDel);
+        }
         if ($delete) {
             redirect(base_url('admin/listguru'));
         } else {
@@ -316,16 +325,26 @@ class Admin extends CI_Controller
         $alamat = $this->input->post('alamat');
         $email = $this->input->post('email');
         $username = $this->input->post('username');
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+
         $data = array(
             'namaSiswa'  => $namaSiswa,
             'noHp'      => $noHp,
             'alamat'    => $alamat,
             'email'    => $email,
             'username'  => $username,
+            'password' => $password
+
         );
         //var_dump($data);
         //die();
         $this->SiswaModel->update($data, $idSiswa);
+
+        $jadwal = $this->db->get_where('jadwal', ['idSiswa' => $idSiswa])->result();
+        for ($i = 0; $i < count($jadwal); $i++) {
+            $id = $jadwal[$i]->idJadwal;
+            $this->JadwalModel->update(['namaSiswa' => $namaSiswa], $id);
+        }
         redirect('admin/listsiswa');
     }
 
@@ -335,7 +354,7 @@ class Admin extends CI_Controller
         $namaAdmin = $this->input->post('namaAdmin');
 
         $username = $this->input->post('username');
-        $password = $this->input->post('password');
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
         $data = array(
             'namaAdmin'  => $namaAdmin,
             'username'  => $username,
@@ -353,7 +372,7 @@ class Admin extends CI_Controller
         $noHp = $this->input->post('noHp');
         $alamat = $this->input->post('alamat');
         $username = $this->input->post('username');
-        $password = $this->input->post('password');
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
         $data = array(
             'namaGuru'  => $namaGuru,
             'noHp'      => $noHp,
@@ -364,6 +383,23 @@ class Admin extends CI_Controller
         // var_dump($data);
         // die();
         $this->GuruModel->update($data, $idGuru);
+
+        //additional
+        $matpel = $this->db->get_where('matpel', ['idGuru' => $idGuru])->result();
+        for ($i = 0; $i < count($matpel); $i++) {
+            $id = $matpel[$i]->idMatpel;
+            $this->MatpelModel->update(['namaGuru' => $namaGuru], $id);
+        }
+
+        $jadwal = $this->db->get_where('jadwal', ['idGuru' => $idGuru])->result();
+        for ($i = 0; $i < count($jadwal); $i++) {
+            $id = $jadwal[$i]->idJadwal;
+            $this->JadwalModel->update(['namaGuru' => $namaGuru], $id);
+        }
+
+        //var_dump(count($matpel));
+        //die();
+        //$this->MatpelModel->update();
         redirect('admin/listguru');
     }
     public function editMatpel()
@@ -385,6 +421,46 @@ class Admin extends CI_Controller
         //die();
         $this->MatpelModel->update($data, $idMatpel);
         redirect('admin/listmatpel');
+    }
+
+    public function editJadwal()
+    {
+        $idJadwal = $this->input->post('idJadwal');
+        $tanggalJadwal = $this->input->post('tanggalJadwal');
+        $jamJadwal = $this->input->post('jamJadwal');
+        $namaMatpel = $this->input->post('namaMatpel');
+        $namaGuru = $this->input->post('namaGuru');
+        $idSiswa = $this->input->post('idSiswa');
+
+        $cari = array(
+            'namaMatpel' => $namaMatpel,
+            'namaGuru' => $namaGuru
+        );
+        $query = $this->db->get_where('matpel', $cari)->row_array();
+        $idMatpel = $query['idMatpel'];
+        $idGuru = $query['idGuru'];
+        //$namaSiswa = $this->db->get_where('siswa', ['idSiswa' => $idSiswa]);
+
+        $con['conditions'] = array(
+            'idSiswa' => $idSiswa,
+        );
+        $siswa = $this->SiswaModel->getData($con)[0];
+        $namaSiswa = $siswa['namaSiswa'];
+        //var_dump($siswa);
+        $data = array(
+            'tanggalJadwal'  => $tanggalJadwal,
+            'jamJadwal'      => $jamJadwal,
+            'idMatpel '     => $idMatpel,
+            'idGuru '       => $idGuru,
+            'idSiswa'  => $idSiswa,
+            'namaMatpel'    => $namaMatpel,
+            'namaGuru'    => $namaGuru,
+            'namaSiswa' => $namaSiswa
+        );
+        //var_dump($data);
+        //die();
+        $this->JadwalModel->update($data, $idJadwal);
+        redirect('admin/listjadwal');
     }
     /*
     function editSiswaView()
