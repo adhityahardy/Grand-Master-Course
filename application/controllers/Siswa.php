@@ -17,38 +17,34 @@ class Siswa extends CI_Controller
 
     public function index()
     {
+        $data['title'] = 'Siswa GM Course';
         $data['siswa'] = $this->db->get_where('siswa', ['username' => $this->session->userdata('username')])->row_array();
-        echo 'WELKAM' . $data['siswa']['username'];
-        $this->load->view('menusiswa/homesiswa');
+        $this->load->view('/menusiswa/siswaheader', $data);
+        $this->load->view('/menusiswa/homesiswa', $data);
+        $this->load->view('/menusiswa/siswafooter', $data);
     }
 
-    public function viewMatpel()
+    public function matpel()
     {
-
-        $data['title'] = 'List Mata Pelajaran';
+        $data['title'] = 'Siswa GM Course';
         $data['siswa'] = $this->db->get_where('siswa', ['username' => $this->session->userdata('username')])->row_array();
-
-        $data1['siswa'] = $this->Siswa_Model->getAllMatpel()();
-
-        // $this->load->view('templates/header', $data);
-        // $this->load->view('templates/sidebar', $data);
-        // $this->load->view('templates/topbar', $data);
-        $this->load->view('siswa/matpel', $data1);
-        // $this->load->view('templates/footer');
+        $data['guru'] = $this->GuruModel->getData();
+        $data["list_data"] = $this->MatpelModel->getData();
+        $this->load->view('/menusiswa/siswaheader', $data);
+        $this->load->view('/menusiswa/matpel', $data);
+        $this->load->view('/menusiswa/siswafooter', $data);
     }
 
-    public function viewJadwal()
+    public function jadwal()
     {
-
-        $data['title'] = 'List Jadwal';
+        $data['title'] = 'Siswa GM Course';
         $data['siswa'] = $this->db->get_where('siswa', ['username' => $this->session->userdata('username')])->row_array();
-
-        $data1['siswa'] = $this->Siswa_Model->getAllJadwal()()();
-
-        // $this->load->view('templates/header', $data);
-        // $this->load->view('templates/sidebar', $data);
-        // $this->load->view('templates/topbar', $data);
-        $this->load->view('siswa/jadwal', $data1);
-        // $this->load->view('templates/footer');
+        $data['siswa'] = $this->SiswaModel->getData();
+        $data['guru'] = $this->GuruModel->getData();
+        $data['matpel'] = $this->MatpelModel->getData();
+        $data["list_data"] = $this->JadwalModel->getData();
+        $this->load->view('/menusiswa/siswaheader', $data);
+        $this->load->view('/menusiswa/jadwal', $data);
+        $this->load->view('/menusiswa/siswafooter', $data);
     }
 }
