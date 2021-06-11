@@ -23,12 +23,12 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Create Siswa</button>
+                            <!-- <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Create Siswa</button> -->
                             <table id="example2" class="table table-bordered table-hover">
-                                <thead>
+                                <thead class="table-info">
                                     <tr>
                                         <th>No.</th>
-                                        <th>Id Siswa</th>
+                                        <!-- <th>Id Siswa</th> -->
                                         <th>Nama Siswa</th>
                                         <th>No. Hp</th>
                                         <th>Alamat</th>
@@ -36,7 +36,7 @@
                                         <th>Username</th>
                                         <th>Action</th>
                                     </tr>
-                                </thead>
+                                    </>
                                 <tbody>
                                     <?php
                                     if ($list_data) {
@@ -45,14 +45,14 @@
                                     ?>
                                             <tr>
                                                 <td><?= $nomor++ ?></td>
-                                                <td><?= $siswa['idSiswa'] ?></td>
+                                                <!-- <td><?= $siswa['idSiswa'] ?></td> -->
                                                 <td><?= $siswa['namaSiswa'] ?></td>
                                                 <td><?= $siswa['noHp'] ?></td>
                                                 <td><?= $siswa['alamat'] ?></td>
                                                 <td><?= $siswa['email'] ?></td>
                                                 <td><?= $siswa['username'] ?></td>
                                                 <td>
-                                                    <a type="button" id='btn-edit' class="btn btn-success" href="<?= base_url('admin/editSiswa?id=' . $siswa['idSiswa']) ?>" data-toggle="modal" data-target="#exampleModalEdit<?php echo $siswa['idSiswa']; ?>"><i class=" fas fa-edit"></i></a>
+                                                    <!-- <a type="button" id='btn-edit' class="btn btn-success" href="<?= base_url('admin/editSiswa?id=' . $siswa['idSiswa']) ?>" data-toggle="modal" data-target="#exampleModalEdit<?php echo $siswa['idSiswa']; ?>"><i class=" fas fa-edit"></i></a> -->
                                                     <!-- Modal Edit -->
                                                     <div class="modal fade" id="exampleModalEdit<?php echo $siswa['idSiswa']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
@@ -113,7 +113,7 @@
                                         ?>
                                         <tr>
                                             <td>-</td>
-                                            <td>-</td>
+                                            <!-- <td>-</td> -->
                                             <td>-</td>
                                             <td>-</td>
                                             <td>-</td>
@@ -147,35 +147,35 @@
                 </div>
                 <div class="modal-body">
                     <!-- Form Create -->
-                    <form method="post" action="<?php echo base_url() . 'Admin/createSiswa'; ?>">
-                        <div class="form-group">
-                            <label>Nama Siswa:</label>
-                            <input type="text" name="namaSiswa" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>No Hp:</label>
-                            <input type="text" name="noHp" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Alamat:</label>
-                            <input type="text" name="alamat" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email:</label>
-                            <input type="text" name="email" class="form-control" required validate="required:true">
-                        </div>
-                        <div class="form-group">
-                            <label>Username:</label>
-                            <input type="text" name="username" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Password:</label>
-                            <input type="text" name="password" class="form-control" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+                    <!-- <form method="post" action="<?php echo base_url() . 'Admin/createSiswa'; ?>"> -->
+                    <div class="form-group">
+                        <label>Nama Siswa:</label>
+                        <input type="text" name="namaSiswa" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>No Hp:</label>
+                        <input type="text" name="noHp" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat:</label>
+                        <input type="text" name="alamat" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="text" name="email" class="form-control" required validate="required:true">
+                    </div>
+                    <div class="form-group">
+                        <label>Username:</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password:</label>
+                        <input type="text" name="password" class="form-control" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                     </form>
                     <!-- Form Create -->
                 </div>

@@ -24,8 +24,9 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Create Matpel</button>
+                            <p>
                             <table id="example2" class="table table-bordered table-hover">
-                                <thead>
+                                <thead class="table-info">
                                     <tr>
                                         <th>No.</th>
                                         <!-- <th>Id Matpel</th> -->
@@ -77,24 +78,6 @@
                                                                         <div class="form-group">
                                                                             <label for="recipient-name" class="col-form-label">Nama Matpel</label>
                                                                             <input type="text" class="form-control" name="namaMatpel" value="<?= $matpel['namaMatpel'] ?>" required>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label for="message-text" class="col-form-label">Nama Guru</label>
-                                                                            <!--<input type="text" class="form-control" name="idGuru" value="<?= $matpel['namaGuru'] ?>" required> -->
-                                                                            <select name="idGuru" class="custom-select">
-                                                                                <?php
-                                                                                $new_arr = [];
-                                                                                foreach ($guru as $g) {
-                                                                                    if (!(in_array($g['namaGuru'], $new_arr))) {
-                                                                                        array_push($new_arr, $g['namaGuru']);
-                                                                                        if ($g['idGuru'] == $matpel['idGuru']) { ?>
-                                                                                            <option value="<?= $g['idGuru'] ?>" selected><?= $g['namaGuru'] ?></option>
-                                                                                        <?php } else { ?>
-                                                                                            <option value="<?= $g['idGuru'] ?>"><?= $g['namaGuru'] ?></option>
-                                                                                        <?php } ?>
-                                                                                    <?php } ?>
-                                                                                <?php } ?>
-                                                                            </select>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -149,17 +132,6 @@
                         <div class="form-group">
                             <label>Nama Matpel</label>
                             <input type="text" name="namaMatpel" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Nama Guru</label>
-                            <select name="idGuru" class="custom-select">
-                                <option value="" selected disabled>Pilih Guru</option>
-                                <?php foreach ($guru as $g) : ?>
-                                    <option value="<?= $g['idGuru'] ?>"><?= $g['namaGuru'] ?></option>
-                                <?php endforeach; ?>
-
-                            </select>
-                            <!--<input type="text" name="namaGuru" class="form-control" required> -->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

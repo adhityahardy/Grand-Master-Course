@@ -19,8 +19,6 @@ class Guru extends CI_Controller
     {
         $data['title'] = 'Guru GM Course';
         $data['guru'] = $this->db->get_where('guru', ['username' => $this->session->userdata('username')])->row_array();
-        // var_dump($data['guru']['username']);
-        // die();
         $this->load->view('/menuguru/guruheader', $data);
         $this->load->view('/menuguru/homeguru', $data);
         $this->load->view('/menuguru/gurufooter', $data);
@@ -40,7 +38,7 @@ class Guru extends CI_Controller
     {
         $data['title'] = 'Guru GM Course';
         $data['guru'] = $this->db->get_where('guru', ['username' => $this->session->userdata('username')])->row_array();
-        $data['guru'] = $this->GuruModel->getData();
+        // $data['guru'] = $this->GuruModel->getData();
         $data["list_data"] = $this->MatpelModel->getData();
         $this->load->view('/menuguru/guruheader', $data);
         $this->load->view('/menuguru/listmatpel', $data);
@@ -52,7 +50,7 @@ class Guru extends CI_Controller
         $data['title'] = 'Guru GM Course';
         $data['guru'] = $this->db->get_where('guru', ['username' => $this->session->userdata('username')])->row_array();
         $data['siswa'] = $this->SiswaModel->getData();
-        $data['guru'] = $this->GuruModel->getData();
+        // $data['guru'] = $this->GuruModel->getData();
         $data['matpel'] = $this->MatpelModel->getData();
         $data["list_data"] = $this->JadwalModel->getData();
         $this->load->view('/menuguru/guruheader', $data);

@@ -24,14 +24,16 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Create Jadwal</button>
+                            <p>
                             <table id="example2" class="table table-bordered table-hover">
-                                <thead>
+                                <thead class="table-info">
                                     <tr>
+                                        <th>No. </th>
                                         <th>Id Jadwal</th>
                                         <th>Hari</th>
                                         <th>Jam</th>
                                         <th>Matpel</th>
-                                        <th>Guru</th>
+                                        <!-- <th>Guru</th> -->
                                         <th>Siswa</th>
                                         <!-- <th>Id Matpel</th>
                                         <th>Id Guru</th> -->
@@ -42,13 +44,15 @@
                                 <tbody>
                                     <?php
                                     if ($list_data) {
+                                        $nomor = 1;
                                         foreach ($list_data as $jadwal) { ?>
                                             <tr>
+                                                <td><?= $nomor++ ?></td>
                                                 <td><?= $jadwal['idJadwal'] ?></td>
                                                 <td><?= $jadwal['tanggalJadwal'] ?></td>
                                                 <td><?= $jadwal['jamJadwal'] ?></td>
                                                 <td><?= $jadwal['namaMatpel'] ?></td>
-                                                <td><?= $jadwal['namaGuru'] ?></td>
+                                                <!-- <td><?= $jadwal['namaGuru'] ?></td> -->
                                                 <td><?= $jadwal['namaSiswa'] ?></td>
                                                 <td>
                                                     <a type="button" class="btn btn-success" href="<?= base_url('admin/editJadwal?id=' . $jadwal['idJadwal']) ?>" data-toggle="modal" data-target="#exampleModalEdit<?php echo $jadwal['idJadwal']; ?>" onclick=""><i class="fas fa-edit"></i></a>
@@ -92,16 +96,6 @@
                                                                             <input type="text" class="form-control" name="namaMatpel" value="<?= $jadwal['namaMatpel'] ?>" readonly required>
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label>Guru</label>
-                                                                            <select name="namaGuru" class="custom-select">
-                                                                                <?php foreach ($matpel as $m) :
-                                                                                    if ($m['namaMatpel'] == $jadwal['namaMatpel']) { ?>
-                                                                                        <option value="<?= $m['namaGuru'] ?>"><?= $m['namaGuru'] ?></option>
-                                                                                    <?php } ?>
-                                                                                <?php endforeach; ?>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="form-group">
                                                                             <label>Siswa</label>
                                                                             <select id="selectSiswa" name="idSiswa" class="custom-select">
                                                                                 <?php
@@ -139,7 +133,7 @@
                                             <td>-</td>
                                             <td>-</td>
                                             <td>-</td>
-                                            <td>-</td>
+                                            <!-- <td>-</td> -->
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -200,17 +194,6 @@
                                         <option value="<?= $m['namaMatpel'] ?>"><?= $m['namaMatpel'] ?></option>
                                     <?php } ?>
                                 <?php } ?>
-
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Guru</label>
-                            <select id="selectGuru" name="namaGuru" class="custom-select">
-
-                                <!--
-                                <?php foreach ($guru as $g) : ?>
-                                    <option value="<?= $g['idGuru'] ?>"><?= $g['namaGuru'] ?></option>
-                                <?php endforeach; ?> -->
 
                             </select>
                         </div>
