@@ -96,4 +96,31 @@ class Guru extends CI_Controller
         //$this->JadwalModel->update($data, $idJadwal);
         redirect('guru/listjadwal');
     }
+
+    public function statusBayarJadwal()
+    {
+        $actionStatus = $this->input->post('StatusBayarJadwal');
+        $idJadwal = $this->input->post('idJadwal');
+        // var_dump($actionStatus);
+        // die();
+        $data = array(
+            'bayarJadwal'  => $actionStatus
+        );
+        // var_dump($data);
+        // die();
+        $this->JadwalModel->update(['bayarJadwal' => $actionStatus], $idJadwal);
+
+        //$this->JadwalModel->update($data, $idJadwal);
+        redirect('guru/listjadwal');
+    }
+
+    public function deleteJadwal()
+    {
+        $id = $this->input->get('id');
+        $delete = $this->JadwalModel->delete($id);
+        if ($delete) {
+            redirect(base_url('guru/listjadwal'));
+        } else {
+        }
+    }
 }

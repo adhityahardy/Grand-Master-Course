@@ -38,6 +38,7 @@
                                         <th>Id Guru</th> -->
                                         <!-- <th>Id Siswa</th> -->
                                         <th>Status</th>
+                                        <th>Pembayaran</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,77 +62,158 @@
                                                     <?php  } else { ?>
                                                         <td class="font-weight-bold text-danger">Reject</td>
                                                     <?php } ?>
-                                                    <!-- <td class="font-weight-bold text-danger"><?= "Pending" ?></td> -->
-                                                    <!-- <td> -->
-                                                    <!-- <a type="button" class="btn btn-success" href="<?= base_url('admin/editJadwal?id=' . $jadwal['idJadwal']) ?>" data-toggle="modal" data-target="#exampleModalEdit<?php echo $jadwal['idJadwal']; ?>" onclick=""><i class="fas fa-edit"></i></a> -->
-                                                    <!-- Modal Edit -->
-                                                    <div class="modal fade" id="exampleModalEdit<?php echo $jadwal['idJadwal']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Jadwal</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <!-- Form Edit -->
-                                                                    <form method="POST" action="<?php echo base_url() . 'Admin/editJadwal'; ?>">
-                                                                        <div class="form-group">
-                                                                            <label>Id Jadwal</label>
-                                                                            <input type="text" class="form-control" name="idJadwal" value="<?= $jadwal['idJadwal'] ?>" readonly required>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label>Tanggal</label>
-                                                                            <div class="input-group date" id="reservationdateEdit" name="hariJadwal" data-target-input="nearest">
-                                                                                <div class="input-group-append" data-target="#reservationdateEdit" data-toggle="datetimepicker">
-                                                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                                                </div>
-                                                                                <input type="text" class="form-control datetimepicker-input" data-target="#reservationdateEdit" name="tanggalJadwal" value="<?= $jadwal['tanggalJadwal'] ?>" required />
+                                                    <td><a type="button" id='btn-edit' class="btn btn-success" href="<?= base_url('siswa/invoice?id=' . $jadwal['idJadwal']) ?>" data-toggle="modal" data-target="#exampleModalInvoice<?php echo $jadwal['idJadwal']; ?>">Detail Pembayaran</a>
+                                                        <!--MODAL INVOICE-->
+                                                        <div class="modal fade" id="exampleModalInvoice<?php echo $jadwal['idJadwal']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">INVOICE</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <!-- <div class="container"> -->
+                                                                        <div class="card">
+                                                                            <div class="card-header">
+                                                                                Invoice :
+                                                                                <strong>01/01/01/2018</strong>
+                                                                                <span class="float-right"> <strong>Status:</strong> Accept</span>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label>Jam</label>
-                                                                            <div class="input-group date" id="timepickerEdit" name="tanggalJadwal" data-target-input="nearest">
-                                                                                <div class="input-group-append" data-target="#timepickerEdit" data-toggle="datetimepicker">
-                                                                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                                                            <div class="card-body">
+                                                                                <div>
+                                                                                    <b>Nama Siswa : </b>Lorenzo Insigne
                                                                                 </div>
-                                                                                <input type="text" class="form-control datetimepicker-input" data-target="#timepickerEdit" name="jamJadwal" value="<?= $jadwal['jamJadwal'] ?>" required />
+                                                                                <div>
+                                                                                    <b>Nama Guru : </b> Baringin
+                                                                                </div>
+                                                                                <div>
+                                                                                    <b>Hari/Tanggal : </b>Senin, 30 Agustus 2020
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label>Matpel</label>
-                                                                            <input type="text" class="form-control" name="namaMatpel" value="<?= $jadwal['namaMatpel'] ?>" readonly required>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label>Guru</label>
-                                                                            <select name="namaGuru" class="custom-select">
-                                                                                <?php foreach ($matpel as $m) :
-                                                                                    if ($m['namaMatpel'] == $jadwal['namaMatpel']) { ?>
-                                                                                        <option value="<?= $m['namaGuru'] ?>"><?= $m['namaGuru'] ?></option>
-                                                                                    <?php } ?>
-                                                                                <?php endforeach; ?>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label>Siswa</label>
-                                                                            <select id="selectSiswa" name="idSiswa" class="custom-select">
+                                                                            <div>
+                                                                                <table class="table table-striped">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th class="center">No</th>
+                                                                                            <th>Mata Pelajaran</th>
+                                                                                            <th>Guru</th>
+                                                                                            <th>Jam</th>
+                                                                                            <th>Durasi(Jam)</th>
+                                                                                            <th class="center">Harga per Jam</th>
+                                                                                            <th class="center">Subtotal(Harga x Durasi)</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td class="center">1</td>
+                                                                                            <td class="left strong">Matematika</td>
+                                                                                            <td class="left">Baringin</td>
+                                                                                            <td class="right">21:00</td>
+                                                                                            <td class="center">1</td>
+                                                                                            <td class="right">Rp 10.000</td>
+                                                                                            <td class="right">Rp 10.000</td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                            <div class="col-lg-4 col-sm-5 ml-auto">
+                                                                                <table class="table table-clear">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td class="left">
+                                                                                                <strong>Subtotal</strong>
+                                                                                            </td>
+                                                                                            <td class="right">Rp 10.000</td>
+                                                                                        </tr>
 
-                                                                            </select>
+                                                                                        <tr>
+                                                                                            <td class="left">
+                                                                                                <strong>Total</strong>
+                                                                                            </td>
+                                                                                            <td class="right">
+                                                                                                <strong>Rp 10.000</strong>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                                                        </div>
-                                                                    </form>
-                                                                    <!-- Form Edit -->
+                                                                        <!-- </div> -->
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Modal Edit -->
-                                                    <!-- <a type="button" class="btn btn-danger" href="<?= base_url('admin/deleteJadwal?id=' . $jadwal['idJadwal']) ?>" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i></a> -->
-                                                    <!-- </td> -->
+                                                                <!-- <td class="font-weight-bold text-danger"><?= "Pending" ?></td> -->
+                                                                <!-- <td> -->
+                                                                <!-- <a type="button" class="btn btn-success" href="<?= base_url('admin/editJadwal?id=' . $jadwal['idJadwal']) ?>" data-toggle="modal" data-target="#exampleModalEdit<?php echo $jadwal['idJadwal']; ?>" onclick=""><i class="fas fa-edit"></i></a> -->
+                                                                <!-- Modal Edit -->
+                                                                <div class="modal fade" id="exampleModalEdit<?php echo $jadwal['idJadwal']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLabel">Edit Jadwal</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <!-- Form Edit -->
+                                                                                <form method="POST" action="<?php echo base_url() . 'Admin/editJadwal'; ?>">
+                                                                                    <div class="form-group">
+                                                                                        <label>Id Jadwal</label>
+                                                                                        <input type="text" class="form-control" name="idJadwal" value="<?= $jadwal['idJadwal'] ?>" readonly required>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label>Tanggal</label>
+                                                                                        <div class="input-group date" id="reservationdateEdit" name="hariJadwal" data-target-input="nearest">
+                                                                                            <div class="input-group-append" data-target="#reservationdateEdit" data-toggle="datetimepicker">
+                                                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                                                            </div>
+                                                                                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdateEdit" name="tanggalJadwal" value="<?= $jadwal['tanggalJadwal'] ?>" required />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label>Jam</label>
+                                                                                        <div class="input-group date" id="timepickerEdit" name="tanggalJadwal" data-target-input="nearest">
+                                                                                            <div class="input-group-append" data-target="#timepickerEdit" data-toggle="datetimepicker">
+                                                                                                <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                                                                            </div>
+                                                                                            <input type="text" class="form-control datetimepicker-input" data-target="#timepickerEdit" name="jamJadwal" value="<?= $jadwal['jamJadwal'] ?>" required />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label>Matpel</label>
+                                                                                        <input type="text" class="form-control" name="namaMatpel" value="<?= $jadwal['namaMatpel'] ?>" readonly required>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label>Guru</label>
+                                                                                        <select name="namaGuru" class="custom-select">
+                                                                                            <?php foreach ($matpel as $m) :
+                                                                                                if ($m['namaMatpel'] == $jadwal['namaMatpel']) { ?>
+                                                                                                    <option value="<?= $m['namaGuru'] ?>"><?= $m['namaGuru'] ?></option>
+                                                                                                <?php } ?>
+                                                                                            <?php endforeach; ?>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label>Siswa</label>
+                                                                                        <select id="selectSiswa" name="idSiswa" class="custom-select">
+
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                                                    </div>
+                                                                                </form>
+                                                                                <!-- Form Edit -->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Modal Edit -->
+                                                                <!-- <a type="button" class="btn btn-danger" href="<?= base_url('admin/deleteJadwal?id=' . $jadwal['idJadwal']) ?>" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i></a> -->
+                                                                <!-- </td> -->
                                                 </tr>
                                             <?php }
                                         }
@@ -192,7 +274,7 @@
                                 <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
-                                <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggalJadwal" />
+                                <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggalJadwal" required />
 
                             </div>
                         </div>
@@ -202,14 +284,14 @@
                                 <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="far fa-clock"></i></div>
                                 </div>
-                                <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" name="jamJadwal" />
+                                <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" name="jamJadwal" required />
 
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Matpel</label>
                             <!-- <input type="text" name="Matpel" class="form-control" required> -->
-                            <select id="selectMatpel" name="namaMatpel" class="custom-select" onchange="selectMatpelFunc()">
+                            <select id="selectMatpel" name="namaMatpel" class="custom-select" onchange="selectMatpelFunc()" required>
                                 <option value="" selected disabled>Pilih Matpel</option>
                                 <?php $new_arr = [];
                                 foreach ($matpel as $m) {
@@ -223,7 +305,7 @@
                         </div>
                         <div class="form-group">
                             <label>Guru</label>
-                            <select id="selectGuru" name="namaGuru" class="custom-select">
+                            <select id="selectGuru" name="namaGuru" class="custom-select" required>
 
                                 <!--
                                 <?php foreach ($guru as $g) : ?>

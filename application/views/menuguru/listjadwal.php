@@ -24,12 +24,11 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <!-- <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Create Jadwal</button> -->
-                            <p>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead class="table-info">
                                     <tr>
                                         <th>No. </th>
-                                        <th>Id Jadwal</th>
+                                        <!-- <th>Id Jadwal</th> -->
                                         <th>Hari</th>
                                         <th>Jam</th>
                                         <th>Matpel</th>
@@ -41,6 +40,7 @@
                                         <th>Status</th>
                                         <th>Action</th>
                                         <th>Pembayaran</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,7 +53,7 @@
                                                 $ada++; ?>
                                                 <tr>
                                                     <td><?= $nomor++ ?></td>
-                                                    <td><?= $jadwal['idJadwal'] ?></td>
+                                                    <!-- <td><?= $jadwal['idJadwal'] ?></td> -->
                                                     <td><?= $jadwal['tanggalJadwal'] ?></td>
                                                     <td><?= $jadwal['jamJadwal'] ?></td>
                                                     <td><?= $jadwal['namaMatpel'] ?></td>
@@ -77,14 +77,34 @@
                                                             -
                                                         <?php } ?>
                                                     </td>
-                                                    <td><button type="button" class="btn btn-info">Sudah Bayar</button>
+                                                    <?php if ($jadwal['bayarJadwal'] == 0) { ?>
+                                                        <td class="font-weight-bold text-warning">Pending</td>
+                                                    <?php } else if ($jadwal['bayarJadwal'] == 1) { ?>
+                                                        <td class="font-weight-bold text-success">Sudah</td>
+                                                    <?php  } else if ($jadwal['bayarJadwal'] == 2) { ?>
+                                                        <td class="font-weight-bold text-danger">Belum</td>
+                                                    <?php } ?>
+                                                    <td>
+                                                        <?php if ($jadwal['bayarJadwal'] == 0) { ?>
+                                                            <form action="<?php echo base_url() . 'Guru/statusBayarJadwal'; ?>" method="POST">
+                                                                <input type="text" class="form-control" name="idJadwal" value="<?= $jadwal['idJadwal'] ?>" readonly required hidden>
+                                                                <button type="submit" name="StatusBayarJadwal" value="1" class="btn btn-info">Sudah</button>
+                                                                <button type="submit" name="StatusBayarJadwal" value="2" class="btn btn-danger">Belum</button>
+                                                            </form>
+                                                        <?php } else { ?>
+                                                            <a type="button" class="btn btn-danger" href="<?= base_url('guru/deleteJadwal?id=' . $jadwal['idJadwal']) ?>" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i></a>
+                                                        <?php } ?>
 
+                                                    </td>
                                                 </tr>
                                             <?php }
                                         }
                                         if ($ada == 0) {
                                             ?>
                                             <tr>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
                                                 <td>-</td>
                                                 <td>-</td>
                                                 <td>-</td>
@@ -104,7 +124,10 @@
                                             <td>-</td>
                                             <td>-</td>
                                             <td>-</td>
-                                            <!-- <td>-</td> -->
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

@@ -117,6 +117,7 @@
                                                                             </select>
                                                                         </div>
                                                                         <input type="text" class="form-control" name="accJadwal" value="1" readonly required hidden>
+                                                                        <input type="text" class="form-control" name="bayarJadwal" value="1" readonly required hidden>
 
                                                                         <div class="modal-footer">
                                                                             <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
