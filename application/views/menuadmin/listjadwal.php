@@ -40,6 +40,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <input type="text" hidden>
                                     <?php
                                     if ($list_data) {
                                         foreach ($list_data as $jadwal) { ?>
@@ -71,11 +72,11 @@
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label>Tanggal</label>
-                                                                            <div class="input-group date" id="reservationdateEdit" name="hariJadwal" data-target-input="nearest">
-                                                                                <div class="input-group-append" data-target="#reservationdateEdit" data-toggle="datetimepicker">
+                                                                            <div class="input-group date reservationdateEdit" id="reservationdateEdit" name="hariJadwal" data-target-input="nearest">
+                                                                                <div class="input-group-append " data-target=".reservationdateEdit" data-toggle="datetimepicker">
                                                                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                                                 </div>
-                                                                                <input type="text" class="form-control datetimepicker-input" data-target="#reservationdateEdit" name="tanggalJadwal" value="<?= $jadwal['tanggalJadwal'] ?>" required />
+                                                                                <input type="text" class="form-control datetimepicker-input " data-target=".reservationdateEdit" name="tanggalJadwal" value="<?= $jadwal['tanggalJadwal'] ?>" required />
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group">
@@ -115,6 +116,8 @@
                                                                                 <?php } ?>
                                                                             </select>
                                                                         </div>
+                                                                        <input type="text" class="form-control" name="accJadwal" value="1" readonly required hidden>
+
                                                                         <div class="modal-footer">
                                                                             <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -155,6 +158,7 @@
         </div>
         <!-- /.container-fluid -->
     </section>
+
     <!-- Modal Create -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -226,6 +230,8 @@
 
                             </select>
                         </div>
+                        <input type="text" class="form-control" name="accJadwal" value="1" readonly required hidden>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Submit</button>

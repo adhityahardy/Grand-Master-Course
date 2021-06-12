@@ -77,7 +77,7 @@
                     }
                 });
 
-                $('#reservationdateEdit').datetimepicker({
+                $('.reservationdateEdit').datetimepicker({
                     format: 'DD/MM/YYYY'
                 });
 

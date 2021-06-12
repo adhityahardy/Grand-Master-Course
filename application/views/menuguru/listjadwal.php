@@ -23,7 +23,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Create Jadwal</button>
+                            <!-- <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Create Jadwal</button> -->
                             <p>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead class="table-info">
@@ -38,92 +38,63 @@
                                         <!-- <th>Id Matpel</th>
                                         <th>Id Guru</th> -->
                                         <!-- <th>Id Siswa</th> -->
+                                        <th>Status</th>
                                         <th>Action</th>
+                                        <th>Pembayaran</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     if ($list_data) {
+                                        $ada = 0;
                                         $nomor = 1;
-                                        foreach ($list_data as $jadwal) { ?>
+                                        foreach ($list_data as $jadwal) {
+                                            if ($jadwal['idGuru'] == $guru['idGuru']) {
+                                                $ada++; ?>
+                                                <tr>
+                                                    <td><?= $nomor++ ?></td>
+                                                    <td><?= $jadwal['idJadwal'] ?></td>
+                                                    <td><?= $jadwal['tanggalJadwal'] ?></td>
+                                                    <td><?= $jadwal['jamJadwal'] ?></td>
+                                                    <td><?= $jadwal['namaMatpel'] ?></td>
+                                                    <!-- <td><?= $jadwal['namaGuru'] ?></td> -->
+                                                    <td><?= $jadwal['namaSiswa'] ?></td>
+                                                    <?php if ($jadwal['accJadwal'] == 0) { ?>
+                                                        <td class="font-weight-bold text-warning">Pending</td>
+                                                    <?php } else if ($jadwal['accJadwal'] == 1) { ?>
+                                                        <td class="font-weight-bold text-success">Accept</td>
+                                                    <?php  } else if ($jadwal['accJadwal'] == 2) { ?>
+                                                        <td class="font-weight-bold text-danger">Reject</td>
+                                                    <?php } ?>
+                                                    <td>
+                                                        <?php if ($jadwal['accJadwal'] == 0) { ?>
+                                                            <form action="<?php echo base_url() . 'Guru/statusJadwal'; ?>" method="POST">
+                                                                <input type="text" class="form-control" name="idJadwal" value="<?= $jadwal['idJadwal'] ?>" readonly required hidden>
+                                                                <button type="submit" name="changeStatusJadwal" value="1" class="btn btn-info">Accept</button>
+                                                                <button type="submit" name="changeStatusJadwal" value="2" class="btn btn-danger">Reject</button>
+                                                            </form>
+                                                        <?php } else { ?>
+                                                            -
+                                                        <?php } ?>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-info">Sudah Bayar</button>
+
+                                                </tr>
+                                            <?php }
+                                        }
+                                        if ($ada == 0) {
+                                            ?>
                                             <tr>
-                                                <td><?= $nomor++ ?></td>
-                                                <td><?= $jadwal['idJadwal'] ?></td>
-                                                <td><?= $jadwal['tanggalJadwal'] ?></td>
-                                                <td><?= $jadwal['jamJadwal'] ?></td>
-                                                <td><?= $jadwal['namaMatpel'] ?></td>
-                                                <!-- <td><?= $jadwal['namaGuru'] ?></td> -->
-                                                <td><?= $jadwal['namaSiswa'] ?></td>
-                                                <td>
-                                                    <a type="button" class="btn btn-success" href="<?= base_url('admin/editJadwal?id=' . $jadwal['idJadwal']) ?>" data-toggle="modal" data-target="#exampleModalEdit<?php echo $jadwal['idJadwal']; ?>" onclick=""><i class="fas fa-edit"></i></a>
-                                                    <!-- Modal Edit -->
-                                                    <div class="modal fade" id="exampleModalEdit<?php echo $jadwal['idJadwal']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Jadwal</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <!-- Form Edit -->
-                                                                    <form method="POST" action="<?php echo base_url() . 'Admin/editJadwal'; ?>">
-                                                                        <div class="form-group">
-                                                                            <label>Id Jadwal</label>
-                                                                            <input type="text" class="form-control" name="idJadwal" value="<?= $jadwal['idJadwal'] ?>" readonly required>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label>Tanggal</label>
-                                                                            <div class="input-group date" id="reservationdateEdit" name="hariJadwal" data-target-input="nearest">
-                                                                                <div class="input-group-append" data-target="#reservationdateEdit" data-toggle="datetimepicker">
-                                                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                                                </div>
-                                                                                <input type="text" class="form-control datetimepicker-input" data-target="#reservationdateEdit" name="tanggalJadwal" value="<?= $jadwal['tanggalJadwal'] ?>" required />
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label>Jam</label>
-                                                                            <div class="input-group date" id="timepickerEdit" name="tanggalJadwal" data-target-input="nearest">
-                                                                                <div class="input-group-append" data-target="#timepickerEdit" data-toggle="datetimepicker">
-                                                                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
-                                                                                </div>
-                                                                                <input type="text" class="form-control datetimepicker-input" data-target="#timepickerEdit" name="jamJadwal" value="<?= $jadwal['jamJadwal'] ?>" required />
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label>Matpel</label>
-                                                                            <input type="text" class="form-control" name="namaMatpel" value="<?= $jadwal['namaMatpel'] ?>" readonly required>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label>Siswa</label>
-                                                                            <select id="selectSiswa" name="idSiswa" class="custom-select">
-                                                                                <?php
-                                                                                $new_arr = [];
-                                                                                foreach ($siswa as $s) {
-                                                                                    if ($s['idSiswa'] == $jadwal['idSiswa']) { ?>
-                                                                                        <option value="<?= $s['idSiswa'] ?>" selected><?= $s['namaSiswa'] ?></option>
-                                                                                    <?php } else { ?>
-                                                                                        <option value="<?= $s['idSiswa'] ?>"><?= $s['namaSiswa'] ?></option>
-                                                                                    <?php } ?>
-                                                                                <?php } ?>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                                                        </div>
-                                                                    </form>
-                                                                    <!-- Form Edit -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Modal Edit -->
-                                                    <a type="button" class="btn btn-danger" href="<?= base_url('admin/deleteJadwal?id=' . $jadwal['idJadwal']) ?>" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i></a>
-                                                </td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
                                             </tr>
-                                        <?php }
+                                        <?php
+                                        }
                                     } else {
                                         ?>
                                         <tr>

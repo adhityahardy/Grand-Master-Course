@@ -80,12 +80,12 @@
                                 <p>Siswa</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="<?= base_url('guru/listmatpel'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Matpel</p>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a href="<?= base_url('guru/listjadwal'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>

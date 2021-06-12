@@ -128,13 +128,16 @@
                 </div>
                 <div class="modal-body">
                     <!-- Form Create -->
-                    <form method="post" action="<?php echo base_url() . 'Admin/createMatpel'; ?>">
+                    <form method="post" action="<?php echo base_url() . 'Guru/createMatpel'; ?>">
+                        <input type="text" name="idGuru" class="form-control" required hidden value="<?= $guru['idGuru'] ?>">
+                        <input type="text" name="namaGuru" class="form-control" required hidden value="<?= $guru['namaGuru'] ?>">
+
                         <div class="form-group">
                             <label>Nama Matpel</label>
                             <input type="text" name="namaMatpel" class="form-control" required>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>

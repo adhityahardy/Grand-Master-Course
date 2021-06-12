@@ -57,4 +57,43 @@ class Guru extends CI_Controller
         $this->load->view('/menuguru/listjadwal', $data);
         $this->load->view('/menuguru/gurufooter', $data);
     }
+    public function createMatpel()
+    {
+        $namaMatpel = $this->input->post('namaMatpel');
+        $idGuru = $this->input->post('idGuru');
+        $namaGuru = $this->input->post('namaGuru');
+        // $listguru = $this->GuruModel->getData();
+        // foreach ($listguru as $guru) {
+        //     if ($idGuru == $guru['idGuru']) {
+        //         $namaGuru = $guru['namaGuru'];
+        //     }
+        // }
+        //$namaGuru = $this->db->get_where('guru', $cari)->row_array();
+        $data = array(
+            'namaMatpel'  => $namaMatpel,
+            'idGuru'    => $idGuru,
+            'namaGuru'    => $namaGuru,
+        );
+        // var_dump($data);
+        // die();
+        $this->MatpelModel->insert($data, 'matpel');
+        redirect('guru/listmatpel');
+    }
+
+    public function statusJadwal()
+    {
+        $actionStatus = $this->input->post('changeStatusJadwal');
+        $idJadwal = $this->input->post('idJadwal');
+        // var_dump($actionStatus);
+        // die();
+        $data = array(
+            'accJadwal'  => $actionStatus
+        );
+        // var_dump($data);
+        // die();
+        $this->JadwalModel->update(['accJadwal' => $actionStatus], $idJadwal);
+
+        //$this->JadwalModel->update($data, $idJadwal);
+        redirect('guru/listjadwal');
+    }
 }

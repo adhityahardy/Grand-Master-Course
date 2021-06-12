@@ -59,4 +59,8 @@ $route['admin/listmatpel'] = 'Admin/listmatpel';
 $route['admin/listjadwal'] = 'Admin/listjadwal';
 $route['admin/listsiswa'] = 'Admin/listsiswa';
 $route['admin/getGuru/(:any)'] = 'Admin/getGuruByMatpel/$1';
+
+$route['siswa/listmatpel'] = 'Siswa/listmatpel';
+$route['siswa/listjadwal'] = 'Siswa/listjadwal';
+
 //$route['']
