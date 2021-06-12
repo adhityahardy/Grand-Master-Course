@@ -33,7 +33,7 @@
                                         <th>No. Hp</th>
                                         <th>Alamat</th>
                                         <th>Username</th>
-                                        <th>Password</th>
+                                        <!-- <th>Password</th> -->
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -50,7 +50,7 @@
                                                 <td><?= $guru['noHp'] ?></td>
                                                 <td><?= $guru['alamat'] ?></td>
                                                 <td><?= $guru['username'] ?></td>
-                                                <td><?= $guru['password'] ?></td>
+                                                <!-- <td><?= $guru['password'] ?></td> -->
                                                 <td>
                                                     <a type="button" id='btn-edit' class="btn btn-success" href="<?= base_url('admin/editGuru?id=' . $guru['idGuru']) ?>" data-toggle="modal" data-target="#exampleModalEdit<?php echo $guru['idGuru']; ?>"><i class=" fas fa-edit"></i></a>
                                                     <!-- Modal Edit -->
