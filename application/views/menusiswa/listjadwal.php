@@ -28,9 +28,10 @@
                             <table id="example2" class="table table-bordered table-hover ">
                                 <thead class="table-info">
                                     <tr>
-                                        <th>Id Jadwal</th>
+                                        <th>No.</th>
                                         <th>Hari</th>
                                         <th>Jam</th>
+                                        <th>Durasi (Jam)</th>
                                         <th>Matpel</th>
                                         <th>Guru</th>
                                         <th>Siswa</th>
@@ -44,14 +45,17 @@
                                 <tbody>
                                     <?php
                                     if ($list_data) {
+                                        $nomor = 1;
                                         $ada = 0;
                                         foreach ($list_data as $jadwal) {
                                             if ($jadwal['idSiswa'] == $siswa['idSiswa']) {
                                                 $ada++; ?>
                                                 <tr>
-                                                    <td><?= $jadwal['idJadwal'] ?></td>
+                                                    <td><?= $nomor++ ?></td>
+                                                    <!-- <td><?= $jadwal['idJadwal'] ?></td> -->
                                                     <td><?= $jadwal['tanggalJadwal'] ?></td>
                                                     <td><?= $jadwal['jamJadwal'] ?></td>
+                                                    <td><?= $jadwal['durasi'] ?></td>
                                                     <td><?= $jadwal['namaMatpel'] ?></td>
                                                     <td><?= $jadwal['namaGuru'] ?></td>
                                                     <td><?= $jadwal['namaSiswa'] ?></td>
@@ -111,7 +115,7 @@
                                                                                             <td class="left strong"><?= $jadwal['namaMatpel'] ?></td>
                                                                                             <td class="left"><?= $jadwal['namaGuru'] ?></td>
                                                                                             <td class="right"><?= $jadwal['jamJadwal'] ?></td>
-                                                                                            <td class="center">1</td>
+                                                                                            <td class="center"><?= $jadwal['durasi'] ?></td>
                                                                                             <td class="right">Rp 10.000</td>
                                                                                             <td class="right">Rp 10.000</td>
                                                                                         </tr>
@@ -275,7 +279,6 @@
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
                                 <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggalJadwal" required />
-
                             </div>
                         </div>
                         <div class="form-group">
@@ -285,7 +288,13 @@
                                     <div class="input-group-text"><i class="far fa-clock"></i></div>
                                 </div>
                                 <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" name="jamJadwal" required />
-
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Durasi (Jam)</label>
+                            <div class="input-group date" name="durasi" data-target-input="nearest">
+                                <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                <input type="text" name="durasi" class="form-control" required>
                             </div>
                         </div>
                         <div class="form-group">
