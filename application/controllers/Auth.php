@@ -68,7 +68,7 @@ class Auth extends CI_Controller
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> username not found.</div>');
                 redirect('auth');
             }
-        } else if (str_contains($username, 'guru')) {
+        } else if (str_contains($username, '_guru')) {
             $user = $this->db->get_where('guru', ['username' => $username])->row_array();
             if ($user) {
                 if (password_verify($password, $user['password'])) {

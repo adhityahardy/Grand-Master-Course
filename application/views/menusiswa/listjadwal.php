@@ -83,13 +83,13 @@
                                                                             </div>
                                                                             <div class="card-body">
                                                                                 <div>
-                                                                                    <b>Nama Siswa : </b>Lorenzo Insigne
+                                                                                    <b>Nama Siswa : </b><?= $siswa['namaSiswa'] ?>
                                                                                 </div>
                                                                                 <div>
-                                                                                    <b>Nama Guru : </b> Baringin
+                                                                                    <b>Nama Guru : </b><?= $jadwal['namaGuru'] ?>
                                                                                 </div>
                                                                                 <div>
-                                                                                    <b>Hari/Tanggal : </b>Senin, 30 Agustus 2020
+                                                                                    <b>Hari/Tanggal : </b><?= $jadwal['tanggalJadwal'] ?>
                                                                                 </div>
                                                                             </div>
                                                                             <div>
@@ -108,9 +108,9 @@
                                                                                     <tbody>
                                                                                         <tr>
                                                                                             <td class="center">1</td>
-                                                                                            <td class="left strong">Matematika</td>
-                                                                                            <td class="left">Baringin</td>
-                                                                                            <td class="right">21:00</td>
+                                                                                            <td class="left strong"><?= $jadwal['namaMatpel'] ?></td>
+                                                                                            <td class="left"><?= $jadwal['namaGuru'] ?></td>
+                                                                                            <td class="right"><?= $jadwal['jamJadwal'] ?></td>
                                                                                             <td class="center">1</td>
                                                                                             <td class="right">Rp 10.000</td>
                                                                                             <td class="right">Rp 10.000</td>
