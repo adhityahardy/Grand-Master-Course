@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2021 at 06:05 PM
+-- Generation Time: Jun 13, 2021 at 06:52 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -79,6 +79,7 @@ CREATE TABLE `jadwal` (
   `idJadwal` int(11) NOT NULL,
   `tanggalJadwal` varchar(20) NOT NULL,
   `jamJadwal` varchar(10) NOT NULL,
+  `durasi` int(11) NOT NULL,
   `idMatpel` int(11) NOT NULL,
   `idGuru` int(11) NOT NULL,
   `idSiswa` int(11) NOT NULL,
@@ -93,19 +94,19 @@ CREATE TABLE `jadwal` (
 -- Dumping data for table `jadwal`
 --
 
-INSERT INTO `jadwal` (`idJadwal`, `tanggalJadwal`, `jamJadwal`, `idMatpel`, `idGuru`, `idSiswa`, `namaMatpel`, `namaGuru`, `namaSiswa`, `accJadwal`, `bayarJadwal`) VALUES
-(14, '09/06/2021', '18:30', 2, 2, 18, 'Biologi', 'Kusuma Ningrat', 'siswa3', '0', '0'),
-(15, '10/06/2021', '22:35', 3, 3, 17, 'Matematika', 'Baringin', 'siswa', '0', '0'),
-(16, '09/06/2021', '22:37', 12, 3, 19, 'Fisika', 'Baringin', 'siswa4', '0', '0'),
-(17, '08/06/2021', '22:35', 20, 31, 19, 'Kimia', 'Fredian', 'siswa4', '0', '0'),
-(19, '23/06/2021', '09:40', 20, 31, 17, 'Kimia', 'Fredian', 'siswa', '1', '1'),
-(25, '10/06/2021', '18:30', 23, 32, 20, 'Matematika', 'Udin', 'apoy', '0', '0'),
-(26, '16/06/2021', '18:30', 3, 3, 20, 'Matematika', 'Baringin', 'apoy', '0', '0'),
-(28, '07/06/2021', '23:00', 1, 1, 21, 'Biologi', 'Hadian Syafiar', 'opoi', '0', '0'),
-(30, '08/06/2021', '23:21', 22, 30, 20, 'Kimia', 'Amin', 'apoy', '1', '2'),
-(31, '08/06/2021', '00:23', 22, 30, 20, 'Kimia', 'Amin', 'apoy', '1', '1'),
-(32, '16/06/2021', '00:35', 23, 32, 17, 'Matematika', 'Udin', 'siswa', '0', '0'),
-(33, '08/06/2021', '22:48', 22, 30, 20, 'Kimia', 'Amin', 'apoy', '2', '0');
+INSERT INTO `jadwal` (`idJadwal`, `tanggalJadwal`, `jamJadwal`, `durasi`, `idMatpel`, `idGuru`, `idSiswa`, `namaMatpel`, `namaGuru`, `namaSiswa`, `accJadwal`, `bayarJadwal`) VALUES
+(14, '09/06/2021', '18:30', 2, 2, 2, 18, 'Biologi', 'Kusuma Ningrat', 'Andi', '0', '0'),
+(15, '10/06/2021', '22:35', 3, 3, 3, 17, 'Matematika', 'Baringin', 'Siswa', '0', '0'),
+(16, '09/06/2021', '22:37', 1, 12, 3, 19, 'Fisika', 'Baringin', 'Agung', '0', '0'),
+(17, '08/06/2021', '22:35', 2, 20, 31, 19, 'Kimia', 'Fredian', 'Agung', '0', '0'),
+(19, '23/06/2021', '09:40', 1, 20, 31, 17, 'Kimia', 'Fredian', 'Siswa', '1', '1'),
+(25, '10/06/2021', '18:30', 3, 23, 32, 20, 'Matematika', 'Udin', 'Apoy', '0', '0'),
+(26, '16/06/2021', '18:30', 2, 3, 3, 20, 'Matematika', 'Baringin', 'Apoy', '0', '0'),
+(28, '07/06/2021', '23:00', 1, 1, 1, 21, 'Biologi', 'Hadian Syafiar', 'Opoi', '0', '0'),
+(30, '08/06/2021', '23:21', 2, 22, 30, 20, 'Kimia', 'Amin', 'Apoy', '1', '2'),
+(31, '08/06/2021', '00:23', 1, 22, 30, 20, 'Kimia', 'Amin', 'Apoy', '1', '1'),
+(32, '16/06/2021', '00:35', 2, 23, 32, 17, 'Matematika', 'Udin', 'Siswa', '0', '0'),
+(33, '08/06/2021', '22:48', 1, 22, 30, 20, 'Kimia', 'Amin', 'Apoy', '2', '0');
 
 -- --------------------------------------------------------
 
@@ -154,11 +155,11 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`idSiswa`, `namaSiswa`, `noHp`, `alamat`, `email`, `username`, `password`) VALUES
-(17, 'siswa', '08123123', 'pkp', 'siswa@gmail.com', 'andi_siswa', '$2y$10$ynY9NiA7rqZn2O.XsJP9ienYdGpBLOfdXWMatZzrJO9uwdHAjYx6K'),
-(18, 'siswa3', '079128312', 'alamat siswa 3', 'siswa3@gmail.com', 'iben_siswa3', '$2y$10$vj8lBQf1GM3nybnSqIgYue36sc9aLAyvviBPuu5b/w2pPnxUXzh0.'),
-(19, 'siswa4', '1243236', 'alamat siswa 4', 'siswa4@gmail.com', 'agung_siswa4', '$2y$10$.3hX.odZ5lABEcHT52Pou.AHAktBPeEpNyKiAqw4sJdvQPcSGEfFW'),
-(20, 'apoy', '', '', 'apoy@gmail.com', 'apoy_siswa', '$2y$10$I5KF34L59wM6WtKDlXbXIeIiyd0HhmlCnQtxRECNSEy2b1I8HpMxi'),
-(21, 'opoi', '', '', 'opoi@gmail.com', 'opoi_siswa', '$2y$10$OxSwPXU2cFfmxozN4L7eRuBaXFYphWpD6Tx3U3L17B5XjFc/cgQee');
+(17, 'Siswa', '08123123', 'pkp', 'siswa@gmail.com', 'siswa', '$2y$10$ynY9NiA7rqZn2O.XsJP9ienYdGpBLOfdXWMatZzrJO9uwdHAjYx6K'),
+(18, 'Andi', '079128312', 'alamat siswa 3', 'siswa3@gmail.com', 'siswa3', '$2y$10$vj8lBQf1GM3nybnSqIgYue36sc9aLAyvviBPuu5b/w2pPnxUXzh0.'),
+(19, 'Agung', '1243236', 'alamat siswa 4', 'siswa4@gmail.com', 'siswa4', '$2y$10$.3hX.odZ5lABEcHT52Pou.AHAktBPeEpNyKiAqw4sJdvQPcSGEfFW'),
+(20, 'Apoy', '', '', 'apoy@gmail.com', 'siswa5', '$2y$10$I5KF34L59wM6WtKDlXbXIeIiyd0HhmlCnQtxRECNSEy2b1I8HpMxi'),
+(21, 'Opoi', '', '', 'opoi@gmail.com', 'siswa6', '$2y$10$OxSwPXU2cFfmxozN4L7eRuBaXFYphWpD6Tx3U3L17B5XjFc/cgQee');
 
 --
 -- Indexes for dumped tables
