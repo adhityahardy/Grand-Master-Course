@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2021 at 12:41 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Jun 13, 2021 at 06:05 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,7 +39,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`idAdmin`, `namaAdmin`, `username`, `password`) VALUES
-(3, 'admin', 'admin', '$2y$10$mzRmqugMtUDadnVnZsKtp.cCb9CQlZ73yWp4QzFLghkSe.IWo.UtG');
+(3, 'admin', 'admin', '$2y$10$mzRmqugMtUDadnVnZsKtp.cCb9CQlZ73yWp4QzFLghkSe.IWo.UtG'),
+(7, 'admin2', 'admin2', '$2y$10$5zcfT/PhqVkzIPVLCOVOKOqLB0D0Dd8I16uNUL4xwHEVAkSSgILLW');
 
 -- --------------------------------------------------------
 
@@ -61,10 +62,12 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`idGuru`, `namaGuru`, `noHp`, `alamat`, `username`, `password`) VALUES
-(1, 'Hadian Syafiar', '081273625123', 'Komplek Taman Melati 2 nomor 5', 'hadian1', '123456'),
-(2, 'Kusuma Ningrat', '081263532782', 'Jalan Merdeka nomor 3', 'kusuma1', '123456'),
-(3, 'Baringin', '081245672123', 'Jalan Kasuari nomor 5', 'andi1', 'asdasd'),
-(30, 'guru', '08123123', 'disini', 'guru', '$2y$10$mBzlJn9B2r9WgkzpTESe6.1PJhKZjaauAxdjBXvC0hWQrehW6ocT6');
+(1, 'Hadian Syafiar', '081273625123', 'Komplek Taman Melati 2 nomor 5', 'hadian1_guru', '123456'),
+(2, 'Kusuma Ningrat', '081263532782', 'Jalan Merdeka nomor 3', 'kusuma1_guru', '123456'),
+(3, 'Baringin', '081245672123', 'Jalan Kasuari nomor 5', 'baringin1_guru', '$2y$10$W57WyKjR5k69/G0lM6LcGuR88Q9JB8zXYN17fXZDyvDWd6o0f7NC2'),
+(30, 'Amin', '08123123', 'disini', 'amin_guru', '$2y$10$mBzlJn9B2r9WgkzpTESe6.1PJhKZjaauAxdjBXvC0hWQrehW6ocT6'),
+(31, 'Fredian', '08123412421', 'alamat jauh', 'fredian1_guru', '$2y$10$7FHs7gymQX23NLT8CrpQKe/gQiXg2LPSq5KrkOGRsbIrgtIRlvcx2'),
+(32, 'Udin', '08123423434', 'dekat', 'udin_guru', '$2y$10$NttRanhlHpBwzGeBss.OKe4gQHeETKjaNG.zXfHl5256YXLCw6MPO');
 
 -- --------------------------------------------------------
 
@@ -81,17 +84,28 @@ CREATE TABLE `jadwal` (
   `idSiswa` int(11) NOT NULL,
   `namaMatpel` varchar(100) NOT NULL,
   `namaGuru` varchar(100) NOT NULL,
-  `namaSiswa` varchar(100) NOT NULL
+  `namaSiswa` varchar(100) NOT NULL,
+  `accJadwal` varchar(100) NOT NULL,
+  `bayarJadwal` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `jadwal`
 --
 
-INSERT INTO `jadwal` (`idJadwal`, `tanggalJadwal`, `jamJadwal`, `idMatpel`, `idGuru`, `idSiswa`, `namaMatpel`, `namaGuru`, `namaSiswa`) VALUES
-(11, '05/06/2021', '09:00', 2, 2, 1, 'Biologi', 'Kusuma Ningrat', 'siswa1baru'),
-(12, '09/06/2021', '13:35', 3, 3, 15, 'Kimia', 'Baringin', 'kamusiswa'),
-(13, '09/06/2021', '19:01', 3, 3, 15, 'Matematika', 'Baringin', 'kamusiswa');
+INSERT INTO `jadwal` (`idJadwal`, `tanggalJadwal`, `jamJadwal`, `idMatpel`, `idGuru`, `idSiswa`, `namaMatpel`, `namaGuru`, `namaSiswa`, `accJadwal`, `bayarJadwal`) VALUES
+(14, '09/06/2021', '18:30', 2, 2, 18, 'Biologi', 'Kusuma Ningrat', 'siswa3', '0', '0'),
+(15, '10/06/2021', '22:35', 3, 3, 17, 'Matematika', 'Baringin', 'siswa', '0', '0'),
+(16, '09/06/2021', '22:37', 12, 3, 19, 'Fisika', 'Baringin', 'siswa4', '0', '0'),
+(17, '08/06/2021', '22:35', 20, 31, 19, 'Kimia', 'Fredian', 'siswa4', '0', '0'),
+(19, '23/06/2021', '09:40', 20, 31, 17, 'Kimia', 'Fredian', 'siswa', '1', '1'),
+(25, '10/06/2021', '18:30', 23, 32, 20, 'Matematika', 'Udin', 'apoy', '0', '0'),
+(26, '16/06/2021', '18:30', 3, 3, 20, 'Matematika', 'Baringin', 'apoy', '0', '0'),
+(28, '07/06/2021', '23:00', 1, 1, 21, 'Biologi', 'Hadian Syafiar', 'opoi', '0', '0'),
+(30, '08/06/2021', '23:21', 22, 30, 20, 'Kimia', 'Amin', 'apoy', '1', '2'),
+(31, '08/06/2021', '00:23', 22, 30, 20, 'Kimia', 'Amin', 'apoy', '1', '1'),
+(32, '16/06/2021', '00:35', 23, 32, 17, 'Matematika', 'Udin', 'siswa', '0', '0'),
+(33, '08/06/2021', '22:48', 22, 30, 20, 'Kimia', 'Amin', 'apoy', '2', '0');
 
 -- --------------------------------------------------------
 
@@ -114,7 +128,10 @@ INSERT INTO `matpel` (`idMatpel`, `namaMatpel`, `idGuru`, `namaGuru`) VALUES
 (1, 'Biologi', 1, 'Hadian Syafiar'),
 (2, 'Biologi', 2, 'Kusuma Ningrat'),
 (3, 'Matematika', 3, 'Baringin'),
-(12, 'Fisika', 3, 'Baringin');
+(12, 'Fisika', 3, 'Baringin'),
+(20, 'Kimia', 31, 'Fredian'),
+(22, 'Kimia', 30, 'Amin'),
+(23, 'Matematika', 32, 'Udin');
 
 -- --------------------------------------------------------
 
@@ -137,10 +154,11 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`idSiswa`, `namaSiswa`, `noHp`, `alamat`, `email`, `username`, `password`) VALUES
-(1, 'siswa1baru', '08126372192999', 'alamat1baru', 'siswa1baru@gmail.com', 'siswa1baru', '123456'),
-(15, 'kamusiswa', '081023123', 'dimana aja', 'siswa123@asd.com', 'siswa123', '$2y$10$JTJ14xgwYkKkbfK3irFrx.eow.YBKfEj5vcOEPznReazmGFcR1cpe'),
-(16, 'ilham', '08123123', 'pkp', 'henry@', 'asdd', '$2y$10$AfKDdbnYDhlzab1IQDb.1eqcZoZyrTQOUm1kpjlDZbk/OyXo0bseO'),
-(17, 'siswa', '08123123', 'pkp', 'siswa@gmail.com', 'siswa', '$2y$10$ynY9NiA7rqZn2O.XsJP9ienYdGpBLOfdXWMatZzrJO9uwdHAjYx6K');
+(17, 'siswa', '08123123', 'pkp', 'siswa@gmail.com', 'andi_siswa', '$2y$10$ynY9NiA7rqZn2O.XsJP9ienYdGpBLOfdXWMatZzrJO9uwdHAjYx6K'),
+(18, 'siswa3', '079128312', 'alamat siswa 3', 'siswa3@gmail.com', 'iben_siswa3', '$2y$10$vj8lBQf1GM3nybnSqIgYue36sc9aLAyvviBPuu5b/w2pPnxUXzh0.'),
+(19, 'siswa4', '1243236', 'alamat siswa 4', 'siswa4@gmail.com', 'agung_siswa4', '$2y$10$.3hX.odZ5lABEcHT52Pou.AHAktBPeEpNyKiAqw4sJdvQPcSGEfFW'),
+(20, 'apoy', '', '', 'apoy@gmail.com', 'apoy_siswa', '$2y$10$I5KF34L59wM6WtKDlXbXIeIiyd0HhmlCnQtxRECNSEy2b1I8HpMxi'),
+(21, 'opoi', '', '', 'opoi@gmail.com', 'opoi_siswa', '$2y$10$OxSwPXU2cFfmxozN4L7eRuBaXFYphWpD6Tx3U3L17B5XjFc/cgQee');
 
 --
 -- Indexes for dumped tables
@@ -188,31 +206,31 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `idGuru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `idGuru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `idJadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idJadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `matpel`
 --
 ALTER TABLE `matpel`
-  MODIFY `idMatpel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idMatpel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `idSiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idSiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
