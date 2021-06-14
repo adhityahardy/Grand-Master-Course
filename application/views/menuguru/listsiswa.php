@@ -28,40 +28,37 @@
                                 <thead class="table-info">
                                     <tr>
                                         <th>No.</th>
-                                        <!-- <th>Id Siswa</th> -->
                                         <th>Nama Siswa</th>
-                                        <th>No. Hp</th>
-                                        <th>Alamat</th>
-                                        <th>Email</th>
-                                        <th>Username</th>
+                                        <th>Nama Matpel</th>
                                         <!-- <th>Action</th> -->
                                     </tr>
-                                    </>
                                 <tbody>
                                     <?php
-                                    if ($list_data) {
+                                    if ($jadwal) {
                                         $nomor = 1;
-                                        foreach ($list_data as $siswa) {
-                                    ?>
+                                        $ada = 0;
+                                        foreach ($jadwal as $j) {
+                                            if ($j['idGuru'] == $guru['idGuru']) {
+                                                $ada++; ?>
+                                                <tr>
+                                                    <td><?= $nomor++ ?></td>
+                                                    <td><?= $j['namaSiswa'] ?></td>
+                                                    <td><?= $j['namaMatpel'] ?></td>
+                                                </tr>
+                                            <?php }
+                                        }
+                                        if ($ada == 0) {
+                                            ?>
                                             <tr>
-                                                <td><?= $nomor++ ?></td>
-                                                <!-- <td><?= $siswa['idSiswa'] ?></td> -->
-                                                <td><?= $siswa['namaSiswa'] ?></td>
-                                                <td><?= $siswa['noHp'] ?></td>
-                                                <td><?= $siswa['alamat'] ?></td>
-                                                <td><?= $siswa['email'] ?></td>
-                                                <td><?= $siswa['username'] ?></td>
-
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
                                             </tr>
-                                        <?php }
+                                        <?php
+                                        }
                                     } else {
                                         ?>
                                         <tr>
-                                            <td>-</td>
-                                            <!-- <td>-</td> -->
-                                            <td>-</td>
-                                            <td>-</td>
-                                            <td>-</td>
                                             <td>-</td>
                                             <td>-</td>
                                             <td>-</td>
@@ -72,7 +69,6 @@
                         </div>
                         <!-- /.card-body -->
                     </div>
-
                 </div>
                 <!-- /.col -->
             </div>

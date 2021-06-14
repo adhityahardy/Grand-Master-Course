@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2021 at 06:52 PM
+-- Generation Time: Jun 14, 2021 at 06:29 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -62,12 +62,13 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`idGuru`, `namaGuru`, `noHp`, `alamat`, `username`, `password`) VALUES
-(1, 'Hadian Syafiar', '081273625123', 'Komplek Taman Melati 2 nomor 5', 'hadian1_guru', '123456'),
-(2, 'Kusuma Ningrat', '081263532782', 'Jalan Merdeka nomor 3', 'kusuma1_guru', '123456'),
-(3, 'Baringin', '081245672123', 'Jalan Kasuari nomor 5', 'baringin1_guru', '$2y$10$W57WyKjR5k69/G0lM6LcGuR88Q9JB8zXYN17fXZDyvDWd6o0f7NC2'),
-(30, 'Amin', '08123123', 'disini', 'amin_guru', '$2y$10$mBzlJn9B2r9WgkzpTESe6.1PJhKZjaauAxdjBXvC0hWQrehW6ocT6'),
-(31, 'Fredian', '08123412421', 'alamat jauh', 'fredian1_guru', '$2y$10$7FHs7gymQX23NLT8CrpQKe/gQiXg2LPSq5KrkOGRsbIrgtIRlvcx2'),
-(32, 'Udin', '08123423434', 'dekat', 'udin_guru', '$2y$10$NttRanhlHpBwzGeBss.OKe4gQHeETKjaNG.zXfHl5256YXLCw6MPO');
+(1, 'Hadian Syafiar', '081273625123', 'Komplek Taman Melati 2 nomor 5', 'hadian1_guru', '$2y$10$dlakAnHZ9kLkr8kDFOZ3bu.tFW55ZJTlxHM3q.DmpV4Iu52XCnlym'),
+(2, 'Kusuma Ningrat', '081263532782', 'Jalan Merdeka nomor 3', 'kusuma1_guru', '$2y$10$GyDC4LBSK9WhpPp8TWfR6eyBRgc72sIE2pusNpnmmj8BxeQlIGbzC'),
+(3, 'Baringin', '081245672123', 'Jalan Kasuari nomor 5', 'baringin1_guru', '$2y$10$/wmudGpuecaDJZSpWDXOXOtxv2ZFoOfkvwRrdGHLBGzn1KSDd07OK'),
+(30, 'Amin', '08123123', 'disini', 'amin_guru', '$2y$10$VcJeF5QCfClRMF888oJQbOLmybEWs4JWOzi5zJmCUsQscvt6tGkbK'),
+(31, 'Fredian', '08123412421', 'alamat jauh', 'fredian1_guru', '$2y$10$rJyAV.CuuT5MVC2.GU3hPOfk4F51T3atXqg8MsGB0/6gMcf3zQ1yS'),
+(32, 'Udin', '08123423434', 'dekat', 'udin_guru', '$2y$10$NttRanhlHpBwzGeBss.OKe4gQHeETKjaNG.zXfHl5256YXLCw6MPO'),
+(33, 'Mamat', '0987654321', 'Jalan Betutu nomor 5', 'mamat_guru', '$2y$10$sqekiZl3tIB1HSErlBEP5eOeyXu0aWZeB2C3P103OVhVXppfkVyk2');
 
 -- --------------------------------------------------------
 
@@ -100,13 +101,14 @@ INSERT INTO `jadwal` (`idJadwal`, `tanggalJadwal`, `jamJadwal`, `durasi`, `idMat
 (16, '09/06/2021', '22:37', 1, 12, 3, 19, 'Fisika', 'Baringin', 'Agung', '0', '0'),
 (17, '08/06/2021', '22:35', 2, 20, 31, 19, 'Kimia', 'Fredian', 'Agung', '0', '0'),
 (19, '23/06/2021', '09:40', 1, 20, 31, 17, 'Kimia', 'Fredian', 'Siswa', '1', '1'),
-(25, '10/06/2021', '18:30', 3, 23, 32, 20, 'Matematika', 'Udin', 'Apoy', '0', '0'),
+(25, '10/06/2021', '18:30', 3, 23, 32, 20, 'Matematika', 'Udin', 'Apoy', '1', '1'),
 (26, '16/06/2021', '18:30', 2, 3, 3, 20, 'Matematika', 'Baringin', 'Apoy', '0', '0'),
-(28, '07/06/2021', '23:00', 1, 1, 1, 21, 'Biologi', 'Hadian Syafiar', 'Opoi', '0', '0'),
+(28, '07/06/2021', '23:00', 1, 1, 1, 21, 'Biologi', 'Hadian Syafiar', 'Opoi', '1', '1'),
 (30, '08/06/2021', '23:21', 2, 22, 30, 20, 'Kimia', 'Amin', 'Apoy', '1', '2'),
 (31, '08/06/2021', '00:23', 1, 22, 30, 20, 'Kimia', 'Amin', 'Apoy', '1', '1'),
-(32, '16/06/2021', '00:35', 2, 23, 32, 17, 'Matematika', 'Udin', 'Siswa', '0', '0'),
-(33, '08/06/2021', '22:48', 1, 22, 30, 20, 'Kimia', 'Amin', 'Apoy', '2', '0');
+(32, '16/06/2021', '00:35', 2, 23, 32, 17, 'Matematika', 'Udin', 'Siswa', '2', '2'),
+(33, '08/06/2021', '22:48', 1, 22, 30, 20, 'Kimia', 'Amin', 'Apoy', '2', '0'),
+(34, '10/06/2021', '19:50', 0, 22, 30, 23, 'Kimia', 'Amin', 'Udin', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -155,11 +157,13 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`idSiswa`, `namaSiswa`, `noHp`, `alamat`, `email`, `username`, `password`) VALUES
-(17, 'Siswa', '08123123', 'pkp', 'siswa@gmail.com', 'siswa', '$2y$10$ynY9NiA7rqZn2O.XsJP9ienYdGpBLOfdXWMatZzrJO9uwdHAjYx6K'),
-(18, 'Andi', '079128312', 'alamat siswa 3', 'siswa3@gmail.com', 'siswa3', '$2y$10$vj8lBQf1GM3nybnSqIgYue36sc9aLAyvviBPuu5b/w2pPnxUXzh0.'),
-(19, 'Agung', '1243236', 'alamat siswa 4', 'siswa4@gmail.com', 'siswa4', '$2y$10$.3hX.odZ5lABEcHT52Pou.AHAktBPeEpNyKiAqw4sJdvQPcSGEfFW'),
-(20, 'Apoy', '', '', 'apoy@gmail.com', 'siswa5', '$2y$10$I5KF34L59wM6WtKDlXbXIeIiyd0HhmlCnQtxRECNSEy2b1I8HpMxi'),
-(21, 'Opoi', '', '', 'opoi@gmail.com', 'siswa6', '$2y$10$OxSwPXU2cFfmxozN4L7eRuBaXFYphWpD6Tx3U3L17B5XjFc/cgQee');
+(17, 'Siswa', '08123123', 'pkp', 'siswa@gmail.com', 'siswa', '$2y$10$MAVEoHnCeKHmhD24i4/bAOehqOnfMzwanOcoAm1yDCNUHzg8Bq8Tu'),
+(18, 'Andi', '079128312', 'alamat siswa 3', 'siswa3@gmail.com', 'siswa3', '$2y$10$RFa8PG0AI2KCNWjSMr21eOYAOBQbdXR9kxWh1cSexpRX3Y0JJk.aa'),
+(19, 'Agung', '1243236', 'alamat siswa 4', 'siswa4@gmail.com', 'siswa4', '$2y$10$ZruqWolwq.NkQ49UWsnp3eDu.ZCF/hz8wLM/wLe7QF.zgI8tsdxtG'),
+(20, 'Apoy', '082145678123', 'Jalan Purnama 2', 'apoy@gmail.com', 'siswa5', '$2y$10$7TsgfnKI6miY5F3WdAIfyO2dqR7jw6uqkD5xLGYURenOU5h1DJSyC'),
+(21, 'Opoi', '0812312442', 'Jalan Jekicen no 5', 'opoi@gmail.com', 'siswa6', '$2y$10$h/bpbb5Xdys86M0jq.68y.hUnaouRI.gBttXG9BIDng6uhTq3YMYK'),
+(23, 'Udin', '08765678934', 'Komplek Jurnal No 9', 'udin@gmail.com', 'udin_siswa', '$2y$10$EJrH5o3txqr5kopkI.PMue5UcGXpL8h1tKJIvlS2oSxi.1lw4SI0O'),
+(24, 'Haaland', '098765432', 'Jalan Kosovo nomor 6', 'haaland@gmail.com', 'haaland_siswa', '$2y$10$nrVDuo/.oDQ0wodsSAq4G.LfljHPN9MWxzyNyYAJME3A39N612thO');
 
 --
 -- Indexes for dumped tables
@@ -213,13 +217,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `idGuru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `idGuru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `idJadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `idJadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `matpel`
@@ -231,7 +235,7 @@ ALTER TABLE `matpel`
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `idSiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idSiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
