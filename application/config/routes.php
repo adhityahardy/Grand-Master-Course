@@ -52,3 +52,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'landing';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['admin/listadmin'] = 'Admin/listadmin';
+$route['admin/listguru'] = 'Admin/listguru';
+$route['admin/listmatpel'] = 'Admin/listmatpel';
+$route['admin/listjadwal'] = 'Admin/listjadwal';
+$route['admin/listsiswa'] = 'Admin/listsiswa';
+$route['admin/getGuru/(:any)'] = 'Admin/getGuruByMatpel/$1';
+
+$route['siswa/listmatpel'] = 'Siswa/listmatpel';
+$route['siswa/listjadwal'] = 'Siswa/listjadwal';
+
+//$route['']

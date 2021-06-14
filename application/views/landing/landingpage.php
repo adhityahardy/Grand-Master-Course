@@ -22,6 +22,7 @@
     </div>
   </nav>
 
+  <!-- Header Content -->
   <div class="hero">
     <div class="container">
       <h1>Welcome to Grand Master Course</h1>
@@ -31,7 +32,9 @@
       </p>
     </div>
   </div>
+  <!-- Header Content -->
 
+  <!-- Container Content -->
   <section class="container content">
     <h2>Content One</h2>
     <p>
@@ -52,6 +55,7 @@
       neque, blanditiis nulla cupiditate repellat.
     </p>
   </section>
+  <!-- Container Content -->
 
   <script src="<?= base_url('assets'); ?>/dist/js/landingscript.js"></script>
 </body>

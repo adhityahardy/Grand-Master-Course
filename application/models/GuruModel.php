@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class SiswaModel extends CI_Model
+class GuruModel extends CI_Model
 {
     public function __construct()
     {
         parent::__construct();
         $this->load->database();
-        $this->userTbl = 'siswa';
+        $this->userTbl = 'guru';
     }
 
     public function getData($params = array())
@@ -20,8 +20,8 @@ class SiswaModel extends CI_Model
                 $this->db->where($key, $value);
             }
         }
-        if (array_key_exists("idSiswa", $params)) {
-            $this->db->where('idSiswa', $params['idSiswa']);
+        if (array_key_exists("idGuru", $params)) {
+            $this->db->where('idGuru', $params['idGuru']);
             $query = $this->db->get();
             $result = $query->row_array();
         } else {
@@ -51,13 +51,13 @@ class SiswaModel extends CI_Model
 
     public function update($data, $id)
     {
-        $update = $this->db->update($this->userTbl, $data, array('idSiswa' => $id));
+        $update = $this->db->update($this->userTbl, $data, array('idGuru' => $id));
         return $update ? true : false;
     }
 
     public function delete($id)
     {
-        $delete = $this->db->delete($this->userTbl, array('idSiswa' => $id));
+        $delete = $this->db->delete($this->userTbl, array('idGuru' => $id));
         return $delete ? true : false;
     }
 }

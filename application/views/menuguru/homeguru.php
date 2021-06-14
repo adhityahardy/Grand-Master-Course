@@ -6,7 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
 
-                    <h2>HALO <?php echo $admin['namaAdmin']; ?></h2>
+                    <h2>HALO <?= $guru['namaGuru']; ?></h2>
                 </div>
 
             </div>
