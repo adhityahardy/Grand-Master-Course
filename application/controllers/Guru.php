@@ -29,6 +29,7 @@ class Guru extends CI_Controller
         $data['title'] = 'Guru GM Course';
         $data['guru'] = $this->db->get_where('guru', ['username' => $this->session->userdata('username')])->row_array();
         $data["list_data"] = $this->SiswaModel->getData();
+        $data["jadwal"] = $this->JadwalModel->getData();
         $this->load->view('/menuguru/guruheader', $data);
         $this->load->view('/menuguru/listsiswa', $data);
         $this->load->view('/menuguru/gurufooter', $data);
