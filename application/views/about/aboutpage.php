@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>About Us</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?= base_url('assets'); ?>/about/css/bootstrap.min.css" rel="stylesheet" />
