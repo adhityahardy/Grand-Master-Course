@@ -24,12 +24,15 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Create Jadwal</button>
+                            <p></p>
                             <table id="example2" class="table table-bordered table-hover">
-                                <thead>
+                                <thead class="table-info">
                                     <tr>
+                                        <th>No.</th>
                                         <th>Id Jadwal</th>
                                         <th>Hari</th>
                                         <th>Jam</th>
+                                        <th>Durasi(Jam)</th>
                                         <th>Matpel</th>
                                         <th>Guru</th>
                                         <th>Siswa</th>
@@ -43,11 +46,14 @@
                                     <input type="text" hidden>
                                     <?php
                                     if ($list_data) {
+                                        $nomor = 1;
                                         foreach ($list_data as $jadwal) { ?>
                                             <tr>
+                                                <td><?= $nomor++ ?></td>
                                                 <td><?= $jadwal['idJadwal'] ?></td>
                                                 <td><?= $jadwal['tanggalJadwal'] ?></td>
                                                 <td><?= $jadwal['jamJadwal'] ?></td>
+                                                <td><?= $jadwal['durasi'] ?></td>
                                                 <td><?= $jadwal['namaMatpel'] ?></td>
                                                 <td><?= $jadwal['namaGuru'] ?></td>
                                                 <td><?= $jadwal['namaSiswa'] ?></td>
@@ -81,11 +87,11 @@
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label>Jam</label>
-                                                                            <div class="input-group date" id="timepickerEdit" name="tanggalJadwal" data-target-input="nearest">
-                                                                                <div class="input-group-append" data-target="#timepickerEdit" data-toggle="datetimepicker">
+                                                                            <div class="input-group date timepickerEdit" id="timepickerEdit" name="tanggalJadwal" data-target-input="nearest">
+                                                                                <div class="input-group-append" data-target=".timepickerEdit" data-toggle="datetimepicker">
                                                                                     <div class="input-group-text"><i class="far fa-clock"></i></div>
                                                                                 </div>
-                                                                                <input type="text" class="form-control datetimepicker-input" data-target="#timepickerEdit" name="jamJadwal" value="<?= $jadwal['jamJadwal'] ?>" required />
+                                                                                <input type="text" class="form-control datetimepicker-input" data-target=".timepickerEdit" name="jamJadwal" value="<?= $jadwal['jamJadwal'] ?>" required />
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group">

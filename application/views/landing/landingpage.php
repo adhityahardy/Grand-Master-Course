@@ -29,7 +29,7 @@
         <li><a href="#" class="current">Home</a></li>
         <li><a href="<?= base_url('auth'); ?>">Login</a></li>
         <li><a href="<?= base_url('auth/registration'); ?>">Registration</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="<?= base_url('about'); ?>">About</a></li>
       </ul>
     </div>
   </nav>
@@ -49,7 +49,9 @@
   <section class="container content">
     <h2><b>About Us</b></h2>
     <p>Grand Master Course is an online tutor which provides student the best learning experience. Sign up now or never!</p>
-    <h3><center><b>Learn With Our Best Teachers!</center></b></h3>
+    <h3>
+      <center><b>Learn With Our Best Teachers!</center></b>
+    </h3>
     <p></p>
     <div class="card-deck">
       <div class="card">
@@ -75,8 +77,8 @@
           <p class="card-text">Math is all about rainbows and sunshines with Mr. Thoriq!</p>
           <p><i>"Mathematics is the most beautiful and most powerful creation of the human spirit."</i></p>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
   <!-- Container Content -->
@@ -85,95 +87,94 @@
   <script src="<?= base_url('assets'); ?>/plugins/jquery/jquery.min.js"></script>
   <script src="<?= base_url('assets'); ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="<?= base_url('assets'); ?>/dist/js/adminlte.min.js"></script>
-  
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
-  
-  <!-- Section: Social media -->
-  <section
-    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom "
-  >
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block" style="background-color: white;">
-      
-    </div>
-    <!-- Left -->
 
-    <!-- Right -->
-    <div>
-      
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
+  <!-- Footer -->
+  <footer class="text-center text-lg-start bg-light text-muted">
 
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4" style="font-weight: bold">
-            <i class="fas fa-gem me-3"></i>Grand Master Course<i class="fas fa-gem me-3"></i>
-          </h6>
-          <p>
-            Start your journey now! Get discount up to 50% for your first class.
-          </p>
-        </div>
-        <!-- Grid column -->
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom ">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block" style="background-color: white;">
 
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4" style="font-weight: bold">
-            Class
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Biology</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Chemistry</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Physics</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Math</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4" style="font-weight: bold;">
-            Contact
-          </h6>
-          <p><i class="fas fa-home me-3"></i> Jalan Telekomunikasi, Bandung</p>
-          <p>
-            <i class="fas fa-envelope me-3"></i>
-            grandmastercourse@edu.com
-          </p>
-          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-        </div>
-        <!-- Grid column -->
       </div>
-      <!-- Grid row -->
-    </div>
-  </section>
-  <!-- Section: Links  -->
+      <!-- Left -->
 
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: white;">
-    © 2021 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">GrandMasterCourse.com</a>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
+      <!-- Right -->
+      <div>
+
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4" style="font-weight: bold">
+              <i class="fas fa-gem me-3"></i>Grand Master Course<i class="fas fa-gem me-3"></i>
+            </h6>
+            <p>
+              Start your journey now! Get discount up to 50% for your first class.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4" style="font-weight: bold">
+              Class
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Biology</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Chemistry</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Physics</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Math</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4" style="font-weight: bold;">
+              Contact
+            </h6>
+            <p><i class="fas fa-home me-3"></i> Jalan Telekomunikasi, Bandung</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              grandmastercourse@edu.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: white;">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">GrandMasterCourse.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
 
 </body>
+
 </html>

@@ -96,7 +96,9 @@
                     locale: {
                         format: 'MM/DD/YYYY hh:mm A'
                     }
-                })
+                });
+
+
                 //Date range as a button
                 $('#daterange-btn').daterangepicker({
                         ranges: {
@@ -116,12 +118,13 @@
                 )
 
                 //Timepicker
-                $('#timepicker').datetimepicker({
+                $('.timepicker').datetimepicker({
                     format: 'HH:mm'
                 })
-                $('#timepickerEdit').datetimepicker({
+                $('.timepickerEdit').datetimepicker({
                     format: 'HH:mm'
                 })
+
 
                 //Bootstrap Duallistbox
                 $('.duallistbox').bootstrapDualListbox()

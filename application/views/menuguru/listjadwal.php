@@ -40,7 +40,7 @@
                                         <th>Status</th>
                                         <th>Action</th>
                                         <th>Pembayaran</th>
-                                        <th>Action</th>
+                                        <!-- <th>Action</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -77,25 +77,38 @@
                                                             -
                                                         <?php } ?>
                                                     </td>
-                                                    <?php if ($jadwal['bayarJadwal'] == 0) { ?>
-                                                        <td class="font-weight-bold text-warning">Pending</td>
-                                                    <?php } else if ($jadwal['bayarJadwal'] == 1) { ?>
-                                                        <td class="font-weight-bold text-success">Sudah</td>
-                                                    <?php  } else if ($jadwal['bayarJadwal'] == 2) { ?>
-                                                        <td class="font-weight-bold text-danger">Belum</td>
-                                                    <?php } ?>
-                                                    <td>
-                                                        <?php if ($jadwal['bayarJadwal'] == 0) { ?>
+                                                    <?php if ($jadwal['accJadwal'] == 0) { ?>
+                                                        <td>-</td>
+                                                    <?php } else if (($jadwal['accJadwal'] == 1) and ($jadwal['bayarJadwal'] == 0)) { ?>
+                                                        <td>
                                                             <form action="<?php echo base_url() . 'Guru/statusBayarJadwal'; ?>" method="POST">
                                                                 <input type="text" class="form-control" name="idJadwal" value="<?= $jadwal['idJadwal'] ?>" readonly required hidden>
                                                                 <button type="submit" name="StatusBayarJadwal" value="1" class="btn btn-info">Sudah</button>
-                                                                <button type="submit" name="StatusBayarJadwal" value="2" class="btn btn-danger">Belum</button>
+                                                                <button type="submit" name="StatusBayarJadwal" value="0" class="btn btn-danger">Belum</button>
                                                             </form>
-                                                        <?php } else { ?>
-                                                            <a type="button" class="btn btn-danger" href="<?= base_url('guru/deleteJadwal?id=' . $jadwal['idJadwal']) ?>" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i></a>
-                                                        <?php } ?>
+                                                        </td>
+                                                    <?php  } else if (($jadwal['accJadwal'] == 1) or ($jadwal['bayarJadwal'] == 1)) { ?>
+                                                        <!-- <td>
+                                                            <a type="button" class="btn btn-danger" href="<?= base_url('guru/deleteJadwal?id=' . $jadwal['idJadwal']) ?>" onclick="return confirm('Are You Sure?')">Delete</a>
+                                                        </td> -->
+                                                        <td class="font-weight-bold text-success">Sudah</td>
 
-                                                    </td>
+                                                    <?php } else if (($jadwal['accJadwal'] == 2) or ($jadwal['bayarJadwal'] == 0)) { ?>
+                                                        <td class="font-weight-bold text-danger">-</td>
+                                                    <?php } ?>
+                                                    <!-- <td> -->
+                                                    <?php if (($jadwal['accJadwal'] == 0) or ($jadwal['bayarJadwal'] == 0)) { ?>
+                                                        <!-- <form action="<?php echo base_url() . 'Guru/statusBayarJadwal'; ?>" method="POST">
+                                                            <input type="text" class="form-control" name="idJadwal" value="<?= $jadwal['idJadwal'] ?>" readonly required hidden>
+                                                            <button type="submit" name="StatusBayarJadwal" value="1" class="btn btn-info">Sudah</button>
+                                                            <button type="submit" name="StatusBayarJadwal" value="2" class="btn btn-danger">Belum</button>
+                                                        </form> -->
+
+                                                    <?php } else { ?>
+                                                        <!-- <a type="button" class="btn btn-danger" href="<?= base_url('guru/deleteJadwal?id=' . $jadwal['idJadwal']) ?>" onclick="return confirm('Are You Sure?')"><i class="far fa-trash-alt"></i></a> -->
+                                                    <?php } ?>
+
+                                                    <!-- </td> -->
                                                 </tr>
                                             <?php }
                                         }

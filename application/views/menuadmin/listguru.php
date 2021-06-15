@@ -19,13 +19,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">List Data Guru</h3>
+                            <h3 class="card-title">List Guru</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Create Guru</button>
+                            <p></p>
                             <table id="example2" class="table table-bordered table-hover">
-                                <thead>
+                                <thead class="table-info">
                                     <tr>
                                         <th>No.</th>
                                         <th>Id Guru</th>
@@ -88,7 +89,7 @@
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="message-text" class="col-form-label">New Password:</label>
-                                                                            <input type="text" name="password" class="form-control" required>
+                                                                            <input type="password" name="password" class="form-control" required>
                                                                         </div>
 
                                                                         <div class="modal-footer">
@@ -162,7 +163,7 @@
                         </div>
                         <div class="form-group">
                             <label>Password:</label>
-                            <input type="text" name="password" class="form-control" required>
+                            <input type="password" name="password" class="form-control" required>
                         </div>
                         <div class="modal-footer">
                             <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
