@@ -115,6 +115,7 @@ class Guru extends CI_Controller
         redirect('guru/listjadwal');
     }
 
+
     public function deleteJadwal()
     {
         $id = $this->input->get('id');

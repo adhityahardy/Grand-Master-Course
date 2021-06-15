@@ -29,7 +29,7 @@
         <li><a href="#" class="current">Home</a></li>
         <li><a href="<?= base_url('auth'); ?>">Login</a></li>
         <li><a href="<?= base_url('auth/registration'); ?>">Registration</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="<?= base_url('about'); ?>">About</a></li>
       </ul>
     </div>
   </nav>

@@ -60,6 +60,7 @@ class Siswa extends CI_Controller
         $namaGuru = $this->input->post('namaGuru');
         $namaSiswa = $this->input->post('namaSiswa');
         $idSiswa = $this->input->post('idSiswa');
+        $durasi = $this->input->post('durasiJadwal');
         $accJadwal = 0;
         $bayarJadwal = 0;
         // $data = array(
@@ -96,7 +97,8 @@ class Siswa extends CI_Controller
             'namaGuru'    => $namaGuru,
             'namaSiswa' => $namaSiswa,
             'accJadwal' => $accJadwal,
-            'bayarJadwal' => $bayarJadwal
+            'bayarJadwal' => $bayarJadwal,
+            'durasi' => $durasi
         );
         // var_dump($data);
         // die();

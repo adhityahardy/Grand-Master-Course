@@ -19,13 +19,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">List Data Mata Pelajaran</h3>
+                            <h3 class="card-title">List Mata Pelajaran</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Create Matpel</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Create Mata Pelajaran</button>
+                            <p></p>
                             <table id="example2" class="table table-bordered table-hover">
-                                <thead>
+                                <thead class="table-info">
                                     <tr>
                                         <th>No.</th>
                                         <th>Id Matpel</th>

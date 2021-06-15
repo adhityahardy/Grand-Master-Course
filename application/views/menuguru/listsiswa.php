@@ -29,7 +29,8 @@
                                     <tr>
                                         <th>No.</th>
                                         <th>Nama Siswa</th>
-                                        <th>Nama Matpel</th>
+                                        <th>No Hp</th>
+                                        <!-- <th>Nama Matpel</th> -->
                                         <!-- <th>Action</th> -->
                                     </tr>
                                 <tbody>
@@ -43,7 +44,14 @@
                                                 <tr>
                                                     <td><?= $nomor++ ?></td>
                                                     <td><?= $j['namaSiswa'] ?></td>
-                                                    <td><?= $j['namaMatpel'] ?></td>
+                                                    <?php
+                                                    foreach ($list_data as $s) {
+                                                        if ($s['idSiswa'] == $j['idSiswa']) { ?>
+                                                            <td><?= $s['noHp'] ?></td>
+                                                    <?php }
+                                                    }
+                                                    ?>
+                                                    <!-- <td><?= $j['namaMatpel'] ?></td> -->
                                                 </tr>
                                             <?php }
                                         }
