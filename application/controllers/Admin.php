@@ -216,7 +216,10 @@ class Admin extends CI_Controller
         $namaMatpel = $this->input->post('namaMatpel');
         $namaGuru = $this->input->post('namaGuru');
         $idSiswa = $this->input->post('idSiswa');
+        $durasi = $this->input->post('durasiJadwal');
+
         $accJadwal = 1;
+        $bayarJadwal = 0;
         $cari = array(
             'namaMatpel' => $namaMatpel,
             'namaGuru' => $namaGuru
@@ -241,7 +244,10 @@ class Admin extends CI_Controller
             'namaMatpel'    => $namaMatpel,
             'namaGuru'    => $namaGuru,
             'namaSiswa' => $namaSiswa,
-            'accJadwal' => $accJadwal
+            'accJadwal' => $accJadwal,
+            'durasi' => $durasi,
+            'bayarJadwal' => $bayarJadwal
+
         );
         $this->JadwalModel->insert($data, 'jadwal');
         redirect('admin/listjadwal');

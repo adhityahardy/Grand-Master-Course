@@ -22,11 +22,11 @@
 </head>
 
 <body style="bottom: 0;">
-  <nav class="nav">
+  <nav class="nav fixed-top">
     <div class="container">
       <h1 class="logo"><a href="#">Grand Master Course </a></h1>
       <ul>
-        <li><a href="#" class="current">Home</a></li>
+        <li><a href="/Grand-Master-Course" class="current">Home</a></li>
         <li><a href="<?= base_url('auth'); ?>">Login</a></li>
         <li><a href="<?= base_url('auth/registration'); ?>">Registration</a></li>
         <li><a href="<?= base_url('about'); ?>">About</a></li>

@@ -95,6 +95,15 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group">
+                                                                            <label>Durasi (Jam)</label>
+                                                                            <div class="input-group date" name="durasi" data-target-input="nearest">
+                                                                                <!-- <div class="input-group-text"><i class="far fa-clock"></i></div> -->
+                                                                                <!-- <input name="durasiJadwal" type="text" class="form-control" required> -->
+                                                                                <input type="number" class="form-control" name="durasiJadwal" min="1" max="3" value="<?= $jadwal['durasi'] ?>" required>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group">
                                                                             <label>Matpel</label>
                                                                             <input type="text" class="form-control" name="namaMatpel" value="<?= $jadwal['namaMatpel'] ?>" readonly required>
                                                                         </div>
@@ -199,6 +208,15 @@
 
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label>Durasi (Jam)</label>
+                            <div class="input-group date" name="durasi" data-target-input="nearest">
+                                <!-- <div class="input-group-text"><i class="far fa-clock"></i></div> -->
+                                <!-- <input name="durasiJadwal" type="text" class="form-control" required> -->
+                                <input type="number" class="form-control" name="durasiJadwal" min="1" max="3" required>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label>Matpel</label>
                             <!-- <input type="text" name="Matpel" class="form-control" required> -->
