@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link rel="icon" href="<?= base_url('assets'); ?>/about/favicon.ico" />
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/dist/css/landingstyles.css" />
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
-    <title>About Us</title>
+    <title>Carousel Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?= base_url('assets'); ?>/about/css/bootstrap.min.css" rel="stylesheet" />
@@ -124,19 +125,18 @@
 </head>
 
 <body>
-    <header>
-        <nav class="nav fixed-top">
-            <div class="container">
-                <h1 class="logo"><a href="#">Grand Master Course </a></h1>
-                <ul>
-                    <li><a href="<?= base_url('landing'); ?>">Home</a></li>
-                    <li><a href="<?= base_url('auth'); ?>">Login</a></li>
-                    <li><a href="<?= base_url('auth/registration'); ?>">Registration</a></li>
-                    <li><a href="#" class="current">About</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <nav class="nav fixed-top">
+        <div class="container">
+            <h1 class="logo"><a href="#">Grand Master Course </a></h1>
+            <ul>
+                <li><a href="/Grand-Master-Course" class="current">Home</a></li>
+                <li><a href="<?= base_url('auth'); ?>">Login</a></li>
+                <li><a href="<?= base_url('auth/registration'); ?>">Registration</a></li>
+                <li><a href="<?= base_url('about'); ?>">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -325,6 +325,11 @@
     <script src="<?= base_url('assets'); ?>/about/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="<?= base_url('assets'); ?>/about/vendor/holder.min.js"></script>
+    <script src="<?= base_url('assets'); ?>/dist/js/landingscript.js"></script>
+    <script src="<?= base_url('assets'); ?>/plugins/jquery/jquery.min.js"></script>
+    <script src="<?= base_url('assets'); ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('assets'); ?>/dist/js/adminlte.min.js"></script>
+
 </body>
 
 </html>

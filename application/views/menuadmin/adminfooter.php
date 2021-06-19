@@ -118,7 +118,7 @@
                 )
 
                 //Timepicker
-                $('.timepicker').datetimepicker({
+                $('#timepicker').datetimepicker({
                     format: 'HH:mm'
                 })
                 $('.timepickerEdit').datetimepicker({

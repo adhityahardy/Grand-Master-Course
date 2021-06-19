@@ -321,7 +321,7 @@
                             <div class="input-group date" name="durasi" data-target-input="nearest">
                                 <!-- <div class="input-group-text"><i class="far fa-clock"></i></div> -->
                                 <!-- <input name="durasiJadwal" type="text" class="form-control" required> -->
-                                <input type="number" class="form-control" name="durasiJadwal" min="1" max="3">
+                                <input type="number" class="form-control" name="durasiJadwal" min="1" max="3" required>
                             </div>
                         </div>
                         <div class="form-group">
