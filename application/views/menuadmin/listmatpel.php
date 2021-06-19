@@ -153,7 +153,7 @@
                         </div>
                         <div class="form-group">
                             <label>Nama Guru</label>
-                            <select name="idGuru" class="custom-select">
+                            <select name="idGuru" class="custom-select" required>
                                 <option value="" selected disabled>Pilih Guru</option>
                                 <?php foreach ($guru as $g) : ?>
                                     <option value="<?= $g['idGuru'] ?>"><?= $g['namaGuru'] ?></option>

@@ -99,7 +99,7 @@
                                                                             <div class="input-group date" name="durasi" data-target-input="nearest">
                                                                                 <!-- <div class="input-group-text"><i class="far fa-clock"></i></div> -->
                                                                                 <!-- <input name="durasiJadwal" type="text" class="form-control" required> -->
-                                                                                <input type="number" class="form-control" name="durasiJadwal" min="1" max="3" value="<?= $jadwal['durasi'] ?>" required>
+                                                                                <input type="number" class="form-control" name="durasi" min="1" max="3" value="<?= $jadwal['durasi'] ?>" required>
                                                                             </div>
                                                                         </div>
 
@@ -194,7 +194,7 @@
                                 <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
-                                <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggalJadwal" />
+                                <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggalJadwal" required />
 
                             </div>
                         </div>
@@ -204,7 +204,7 @@
                                 <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="far fa-clock"></i></div>
                                 </div>
-                                <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" name="jamJadwal" />
+                                <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" name="jamJadwal" required />
 
                             </div>
                         </div>
@@ -213,14 +213,14 @@
                             <div class="input-group date" name="durasi" data-target-input="nearest">
                                 <!-- <div class="input-group-text"><i class="far fa-clock"></i></div> -->
                                 <!-- <input name="durasiJadwal" type="text" class="form-control" required> -->
-                                <input type="number" class="form-control" name="durasiJadwal" min="1" max="3" required>
+                                <input type="number" class="form-control" name="durasi" min="1" max="3" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label>Matpel</label>
                             <!-- <input type="text" name="Matpel" class="form-control" required> -->
-                            <select id="selectMatpel" name="namaMatpel" class="custom-select" onchange="selectMatpelFunc()">
+                            <select id="selectMatpel" name="namaMatpel" class="custom-select" onchange="selectMatpelFunc()" required>
                                 <option value="" selected disabled>Pilih Matpel</option>
                                 <?php $new_arr = [];
                                 foreach ($matpel as $m) {
@@ -234,7 +234,7 @@
                         </div>
                         <div class="form-group">
                             <label>Guru</label>
-                            <select id="selectGuru" name="namaGuru" class="custom-select">
+                            <select id="selectGuru" name="namaGuru" class="custom-select" required>
 
                                 <!--
                                 <?php foreach ($guru as $g) : ?>
@@ -246,7 +246,7 @@
                         <div class="form-group">
                             <label>Siswa</label>
                             <!-- <input type="text" name="password" class="form-control" required> -->
-                            <select id="selectSiswa" name="idSiswa" class="custom-select">
+                            <select id="selectSiswa" name="idSiswa" class="custom-select" required>
                                 <!-- <option value="" selected disabled>Pilih Guru</option> -->
                                 <option value="" selected disabled>Pilih Siswa</option>
                                 <?php foreach ($siswa as $s) : ?>

@@ -216,7 +216,7 @@ class Admin extends CI_Controller
         $namaMatpel = $this->input->post('namaMatpel');
         $namaGuru = $this->input->post('namaGuru');
         $idSiswa = $this->input->post('idSiswa');
-        $durasi = $this->input->post('durasiJadwal');
+        $durasi = $this->input->post('durasi');
 
         $accJadwal = 1;
         $bayarJadwal = 0;
@@ -434,6 +434,7 @@ class Admin extends CI_Controller
     {
         $idJadwal = $this->input->post('idJadwal');
         $tanggalJadwal = $this->input->post('tanggalJadwal');
+        $durasi = $this->input->post('durasi');
         $jamJadwal = $this->input->post('jamJadwal');
         $namaMatpel = $this->input->post('namaMatpel');
         $namaGuru = $this->input->post('namaGuru');
@@ -457,6 +458,7 @@ class Admin extends CI_Controller
         $data = array(
             'tanggalJadwal'  => $tanggalJadwal,
             'jamJadwal'      => $jamJadwal,
+            'durasi'    => $durasi,
             'idMatpel '     => $idMatpel,
             'idGuru '       => $idGuru,
             'idSiswa'  => $idSiswa,
