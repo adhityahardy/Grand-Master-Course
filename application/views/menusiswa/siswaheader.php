@@ -87,6 +87,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?= base_url('siswa/profile'); ?>" class="nav-link">
+                                <i class="nav-icon far fa-user-circle"></i>
+                                <p>Profile</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= base_url('auth/logout') ?>" type="button" class="btn btn-danger btn-lg btn-block">Logout</a>
                         </li>
                     </ul>

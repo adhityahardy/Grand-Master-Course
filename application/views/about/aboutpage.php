@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="icon" href="<?= base_url('assets'); ?>/about/favicon.ico" />
+    <!-- <link rel="icon" href="<?= base_url('assets'); ?>/about/favicon.ico" /> -->
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/dist/css/landingstyles.css" />
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>GM Course | About</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?= base_url('assets'); ?>/about/css/bootstrap.min.css" rel="stylesheet" />
@@ -197,7 +197,7 @@
         <div class="row featurette">
             <div class="col-md-7">
                 <h2 class="featurette-heading">
-                    Adhitya Aldira Hardi <br>Engineer</br>
+                    Adhitya Aldira Hardy <br>Engineer</br>
                 </h2>
                 <p class="lead">
                     Education is not the learning of facts, but the training of the mind to think.

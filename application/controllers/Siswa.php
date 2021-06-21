@@ -48,6 +48,17 @@ class Siswa extends CI_Controller
         $this->load->view('/menusiswa/siswafooter', $data);
     }
 
+    public function profile()
+    {
+        $data['title'] = 'Siswa GM Course';
+        $data['siswa'] = $this->db->get_where('siswa', ['username' => $this->session->userdata('username')])->row_array();
+        //$data['siswa'] = $this->SiswaModel->getData();
+        $data["list_data"] = $this->SiswaModel->getData();
+        $this->load->view('/menusiswa/siswaheader', $data);
+        $this->load->view('/menusiswa/profile', $data);
+        $this->load->view('/menusiswa/siswafooter', $data);
+    }
+
     public function createJadwal()
     {
         //$hariJadwal = $this->input->post('hariJadwal');
@@ -120,5 +131,36 @@ class Siswa extends CI_Controller
         $this->JadwalModel->insert($data, 'jadwal');
         redirect('admin/listjadwal');
         */
+    }
+
+    public function editprofile()
+    {
+        $idSiswa = $this->input->post('idSiswa');
+        $namaSiswa = $this->input->post('namaSiswa');
+        $noHp = $this->input->post('noHp');
+        $alamat = $this->input->post('alamat');
+        $email = $this->input->post('email');
+        $username = $this->input->post('username');
+        $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+
+        $data = array(
+            'namaSiswa'  => $namaSiswa,
+            'noHp'      => $noHp,
+            'alamat'    => $alamat,
+            'email'    => $email,
+            'username'  => $username,
+            'password' => $password
+
+        );
+        // var_dump($idSiswa);
+        // die();
+        $this->SiswaModel->update($data, $idSiswa);
+
+        $jadwal = $this->db->get_where('jadwal', ['idSiswa' => $idSiswa])->result();
+        for ($i = 0; $i < count($jadwal); $i++) {
+            $id = $jadwal[$i]->idJadwal;
+            $this->JadwalModel->update(['namaSiswa' => $namaSiswa], $id);
+        }
+        redirect('siswa/profile');
     }
 }
