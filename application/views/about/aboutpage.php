@@ -127,7 +127,7 @@
 <body>
     <nav class="nav fixed-top">
         <div class="container">
-            <h1 class="logo"><a href="#">Grand Master Course </a></h1>
+            <h1 class="logo"><a href="/Grand-Master-Course">Grand Master Course </a></h1>
             <ul>
                 <li><a href="/Grand-Master-Course" class="current">Home</a></li>
                 <li><a href="<?= base_url('auth'); ?>">Login</a></li>

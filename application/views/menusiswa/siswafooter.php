@@ -240,7 +240,7 @@
                 //var category = $("#selectMatpel").val();
                 $.ajax({
                     type: "GET",
-                    url: "http://localhost/Grand-Master-Course/admin/getGuru/" + e,
+                    url: "http://localhost/Grand-Master-Course/siswa/getGuru/" + e,
                     dataType: "json",
                     success: function(data) {
                         $("#selectGuru").html(data.selectedMatpel);

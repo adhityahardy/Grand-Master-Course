@@ -62,6 +62,7 @@ $route['admin/getGuru/(:any)'] = 'Admin/getGuruByMatpel/$1';
 
 $route['siswa/listmatpel'] = 'Siswa/listmatpel';
 $route['siswa/listjadwal'] = 'Siswa/listjadwal';
+$route['siswa/getGuru/(:any)'] = 'Siswa/getGuruByMatpel/$1';
 $route['siswa/editprofile'] = 'Siswa/editprofile';
 //$route['about'] = 'auth/about';
 

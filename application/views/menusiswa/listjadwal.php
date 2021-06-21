@@ -327,13 +327,13 @@
                         <div class="form-group">
                             <label>Matpel</label>
                             <!-- <input type="text" name="Matpel" class="form-control" required> -->
-                            <select id="selectMatpel" name="namaMatpel" class="custom-select" onchange="selectMatpelFunc()" required>
+                            <select id="selectMatpel" name="idMatpel" class="custom-select" onchange="selectMatpelFunc()" required>
                                 <option value="" selected disabled>Pilih Matpel</option>
                                 <?php $new_arr = [];
                                 foreach ($matpel as $m) {
                                     if (!(in_array($m['namaMatpel'], $new_arr))) {
                                         array_push($new_arr, $m['namaMatpel']); ?>
-                                        <option value="<?= $m['namaMatpel'] ?>"><?= $m['namaMatpel'] ?></option>
+                                        <option value="<?= $m['idMatpel'] ?>"><?= $m['namaMatpel'] ?></option>
                                     <?php } ?>
                                 <?php } ?>
 
@@ -341,7 +341,7 @@
                         </div>
                         <div class="form-group">
                             <label>Guru</label>
-                            <select id="selectGuru" name="namaGuru" class="custom-select" required>
+                            <select id="selectGuru" name="idGuru" class="custom-select" required>
 
                                 <!--
                                 <?php foreach ($guru as $g) : ?>

@@ -59,30 +59,45 @@ class Siswa extends CI_Controller
         $this->load->view('/menusiswa/siswafooter', $data);
     }
 
+    public function getGuruByMatpel($idMatpel)
+    {
+        //var_dump($namaMatpel);
+        //$data['selectedMatpel'] = $namaMatpel;
+        $matpel = $this->db->get_where('matpel', ['idMatpel' => $idMatpel])->row_array();
+        $namaMatpel = $matpel['namaMatpel'];
+        //var_dump($namaMatpel['namaMatpel']);
+        #print_r($namaMatpel);
+        //die();
+        $data['selectedMatpel'] = '';
+        $con['conditions'] = array(
+            'namaMatpel' => $namaMatpel,
+        );
+        $listmatpel = $this->MatpelModel->getData($con);
+
+        foreach ($listmatpel as $matpel) :
+            //if ($matpel['namaMatpel'] == $namaMatpel) {
+            $data['selectedMatpel'] .=  '<option value="' . $matpel['idGuru'] . '">' . $matpel['namaGuru'] . '</option>';
+        //}
+        endforeach;
+        print_r(json_encode($data));
+        //$data = $this->;
+        //die();
+        //return json_encode($namaMatpel);
+    }
     public function createJadwal()
     {
-        //$hariJadwal = $this->input->post('hariJadwal');
-        //$jamJadwal = $this->input->post('jamJadwal');
-        //$tanggaljadwal = $this->input->post('tanggaljadwal');
-        //$jamjadwal = $this->input->post('jamjadwal');
         $tanggalJadwal = $this->input->post('tanggalJadwal');
         $jamJadwal = $this->input->post('jamJadwal');
-        $namaMatpel = $this->input->post('namaMatpel');
-        $namaGuru = $this->input->post('namaGuru');
+        $idMatpel = $this->input->post('idMatpel');
+        $idGuru = $this->input->post('idGuru');
+        $namaMatpel = $this->db->get_where('matpel', ['idMatpel' => $idMatpel])->row_array()['namaMatpel'];
+        $namaGuru = $this->db->get_where('guru', ['idGuru' => $idGuru])->row_array()['namaGuru'];
         $namaSiswa = $this->input->post('namaSiswa');
         $idSiswa = $this->input->post('idSiswa');
         $durasi = $this->input->post('durasiJadwal');
+
         $accJadwal = 0;
         $bayarJadwal = 0;
-        // $data = array(
-        //     'tanggalJadwal'  => $tanggalJadwal,
-        //     'jamJadwal'      => $jamJadwal,
-        //     'namaMatpel'    => $namaMatpel,
-        //     'namaGuru'    => $namaGuru,
-        //     'namaSiswa' => $namaSiswa
-        // );
-        // var_dump($data);
-        // die();
         $cari = array(
             'namaMatpel' => $namaMatpel,
             'namaGuru' => $namaGuru
